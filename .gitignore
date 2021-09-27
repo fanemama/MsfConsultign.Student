@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MsfConsultign.Student/MsfConsultign.Student.Api/obj
+/MsfConsultign.Student/MsfConsultign.Student.Api/appsettings.Development.json
+/MsfConsultign.Student/.vs/MsfConsultign.Student/v16
+/MsfConsultign.Student/.vs/MsfConsultign.Student/DesignTimeBuild
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/MsfConsultign.Student/v16/.suo
