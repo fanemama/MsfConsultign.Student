@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Domain", "Msf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Student.Api", "MsfConsulting.Student.Api\MsfConsulting.Student.Api.csproj", "{74EFC6D7-2E39-4AB1-B457-A75CA354E96E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Business", "MsfConsulting.Business\MsfConsulting.Business.csproj", "{0383F1AA-7E45-43F8-8967-6DDB9D5F9F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{74EFC6D7-2E39-4AB1-B457-A75CA354E96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74EFC6D7-2E39-4AB1-B457-A75CA354E96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74EFC6D7-2E39-4AB1-B457-A75CA354E96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0383F1AA-7E45-43F8-8967-6DDB9D5F9F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0383F1AA-7E45-43F8-8967-6DDB9D5F9F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0383F1AA-7E45-43F8-8967-6DDB9D5F9F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0383F1AA-7E45-43F8-8967-6DDB9D5F9F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

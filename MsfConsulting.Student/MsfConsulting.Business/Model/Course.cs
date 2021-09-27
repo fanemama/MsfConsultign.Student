@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Domain.Model
+namespace MsfConsulting.Business.Model
 {
-    public class Grade
+    public class Course
     {
         public int Id { get; set; }
         public string Code { get; set; }

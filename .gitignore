@@ -15,3 +15,7 @@
 /MsfConsulting.Student/.vs/MsfConsultign.Student/DesignTimeBuild
 /MsfConsulting.Student/.vs/MsfConsultign.Student/v16
 /MsfConsulting.Student/MsfConsulting.Student.Api/obj
+/MsfConsulting.Student/MsfConsulting.Business/obj
+/MsfConsulting.Student/MsfConsulting.Business/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Domain/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Student.Api/bin/Debug/net5.0

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Domain.Model
+namespace MsfConsulting.Business.Model
 {
     public class Grade
     {

@@ -8,11 +8,12 @@ namespace MsfConsulting.Domain.Model
 {
     public class Student
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public  IList<Enrollement> Enrollements { get; set; }
-        public IList<UnEnrollement> UnEnrollements { get; set; }
+        public  IList<Enrollment> Enrollements { get; set; }
+        public IList<UnEnrollment> UnEnrollements { get; set; }
     }
 }

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Domain.Model
 {
-    public class Enrollement
+    public class UnEnrollment
     {
-        public Grade Grade { get; set; }
+        public int Id { get; set; }
         public Course Course { get; set; }
         public DateTime Date { get; set; }
+        public string Comment { get; set; }
     }
 }
