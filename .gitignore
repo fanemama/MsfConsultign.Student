@@ -9,3 +9,5 @@
 /.vs/VSWorkspaceState.json
 /.vs/slnx.sqlite
 /.vs/MsfConsultign.Student/v16/.suo
+/MsfConsultign.Student/MsfConsulting.Domain/obj
+/MsfConsultign.Student/MsfConsulting.Student.Api/obj
