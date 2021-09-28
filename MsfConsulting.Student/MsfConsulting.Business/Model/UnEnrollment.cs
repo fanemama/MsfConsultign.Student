@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Business.Model
 {
-    public class UnEnrollment
+    public class Unenrollment
     {
-        public UnEnrollment(Course course, string comment)
+        public Unenrollment(Course course, string comment)
         {
             Course = course;
             Comment = comment;

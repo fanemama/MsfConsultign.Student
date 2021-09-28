@@ -13,4 +13,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Student.Api.Dto.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Student.Api.Service\MsfConsulting.Student.Api.Service.csproj" />
+  </ItemGroup>
+
 </Project>

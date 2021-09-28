@@ -11,12 +11,12 @@ namespace MsfConsulting.Business.Service
     {
         public void Register(Student student);
 
-        public void UnRegister(int id);
+        public void Unregister(int id);
 
         public void Enroll(int id, Enrollment enrollment);
 
-        public void unEnroll(int id, Enrollment enrollment);
+        public void Unenroll(int id, Enrollment enrollment);
 
-        public void EditPersonalInfo(StudentPersonalInfo studentPersonalInfo);
+        public void UpdatePersonalInfo(StudentPersonalInfo studentPersonalInfo);
     }
 }

@@ -14,7 +14,7 @@ namespace MsfConsulting.Domain.Repository
             throw new NotImplementedException();
         }
 
-        public void InsertT(T entity)
+        public void Save(T entity)
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ namespace MsfConsulting.Business.Service
 {
     public class StudentService : IStudentService
     {
-        public void EditPersonalInfo(StudentPersonalInfo studentPersonalInfo)
+        public void UpdatePersonalInfo(StudentPersonalInfo studentPersonalInfo)
         {
             throw new NotImplementedException();
         }
@@ -20,12 +20,12 @@ namespace MsfConsulting.Business.Service
             throw new NotImplementedException();
         }
 
-        public void unEnroll(int id, Enrollment enrollment)
+        public void Unenroll(int id, Enrollment enrollment)
         {
             throw new NotImplementedException();
         }
 
-        public void UnRegister(int id)
+        public void Unregister(int id)
         {
             throw new NotImplementedException();
         }

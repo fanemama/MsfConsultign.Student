@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Business\MsfConsulting.Business.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Business.Service\MsfConsulting.Business.Service.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Domain\MsfConsulting.Domain.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Student.Api.Dto.csproj" />
   </ItemGroup>
 
 </Project>

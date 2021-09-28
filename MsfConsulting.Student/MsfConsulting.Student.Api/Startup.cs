@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,9 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MsfConsulting.Student.Api.Service.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace MsfConsulting.Student.Api
@@ -32,6 +35,8 @@ namespace MsfConsulting.Student.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Student.Api", Version = "v1" });
             });
+
+            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

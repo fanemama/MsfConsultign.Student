@@ -10,17 +10,17 @@ using MsfConsulting.Business.Model;
 
 namespace MsfConsulting.Student.Api.Service.Command
 {
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand>
+    public class EditPersonalInfoCommandHandler : IRequestHandler<EditPersonalInfoCommand>
     {
         private readonly IStudentService _studentService;
-        public RegisterCommandHandler(IStudentService studentService)
+        public EditPersonalInfoCommandHandler(IStudentService studentService)
         {
             _studentService = studentService;
         }
 
-        public async Task<Unit> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(EditPersonalInfoCommand request, CancellationToken cancellationToken)
         {
-            var student = new Business.Model.Student() { };
+            var studentPersonalInfo = new Business.Model.StudentPersonalInfo() { };
 
             //************************mapp using automapper******************/
 
@@ -36,7 +36,7 @@ namespace MsfConsulting.Student.Api.Service.Command
             //    student.Enroll(course, Enum.Parse<Grade>(command.Course2Grade));
             //}
 
-            _studentService.Register(student);
+            _studentService.UpdatePersonalInfo(studentPersonalInfo);
             return await Unit.Task;
         }
     }

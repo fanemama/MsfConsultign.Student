@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Domain.Model
 {
-    public class UnEnrollment
+    public class Unenrollment
     {
         public int Id { get; set; }
         public Course Course { get; set; }

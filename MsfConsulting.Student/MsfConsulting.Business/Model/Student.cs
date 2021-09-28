@@ -14,10 +14,10 @@ namespace MsfConsulting.Business.Model
         public string Email { get; set; }
         public string Phone { get; set; }
         public IReadOnlyCollection<Enrollment> Enrollements => _enrollements.ToList();
-        public IReadOnlyCollection<UnEnrollment> UnEnrollements => _unEnrollements.ToList();
+        public IReadOnlyCollection<Unenrollment> UnEnrollements => _unEnrollements.ToList();
 
         private IList<Enrollment> _enrollements { get; set; }
-        public IList<UnEnrollment> _unEnrollements { get; set; }
+        public IList<Unenrollment> _unEnrollements { get; set; }
 
         public virtual void UnEnroll(Enrollment enrollment, string comment)
         {
@@ -26,7 +26,7 @@ namespace MsfConsulting.Business.Model
 
             _enrollements.Remove(enrollmentToDelete);
 
-            var disenrollment = new UnEnrollment(enrollment.Course, comment);
+            var disenrollment = new Unenrollment(enrollment.Course, comment);
             _unEnrollements.Add(disenrollment);
         }
 
