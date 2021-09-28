@@ -20,4 +20,3 @@ namespace MsfConsulting.Business.Service
         public void EditPersonalInfo(StudentPersonalInfo studentPersonalInfo);
     }
 }
-}

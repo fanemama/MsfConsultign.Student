@@ -9,7 +9,7 @@ namespace MsfConsulting.Domain.Repository
     public interface IGenericRepository<T> where T:class
     {
         T GetTByID(int id);
-        void InsertT(T entity);
+        void Save(T entity);
         void DeleteT(int id);
         void UpdateT(T entity);
     }

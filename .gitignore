@@ -24,3 +24,6 @@
 /MsfConsulting.Student/MsfConsulting.Domain.Repository/obj
 /MsfConsulting.Student/MsfConsulting.Student.Api.Dto/obj
 /MsfConsulting.Student/MsfConsulting.Student.Api.Service/obj
+/MsfConsulting.Student/MsfConsulting.Business.Service/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Student.Api.Dto/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Student.Api.Service/bin/Debug/net5.0
