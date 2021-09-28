@@ -23,8 +23,11 @@
 /MsfConsulting.Student/MsfConsulting.Lausa.Data.Repository/bin/Debug/net5.0
 /MsfConsulting.Student/MsfConsulting.Lausa.Data.Repository/obj
 /MsfConsulting.Student/MsfConsulting.Lausa.Dto/obj
-/MsfConsulting.Student/MsfConsulting.Student.Api.Service/obj
+/MsfConsulting.Student/MsfConsulting.Lausa.Application.Service/obj
 /MsfConsulting.Student/MsfConsulting.Lausa.Domain.Service/bin/Debug/net5.0
 /MsfConsulting.Student/MsfConsulting.Lausa.Dto/bin/Debug/net5.0
-/MsfConsulting.Student/MsfConsulting.Student.Api.Service/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Lausa.Application.Service/bin/Debug/net5.0
 /MsfConsulting.Student/MsfConsulting.Student.Api.Dto/obj
+/MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/bin/Debug/net5.0
+/MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/obj
+/MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/MsfConsulting.Lausa.Student.Api.csproj.user

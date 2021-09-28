@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand>
     {

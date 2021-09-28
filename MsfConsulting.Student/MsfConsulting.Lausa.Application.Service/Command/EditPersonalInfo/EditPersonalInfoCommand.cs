@@ -6,15 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class RegisterCommand : IRequest
+    public class EditPersonalInfoCommand : IRequest
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public IList<Enrollment> Enrollements { get; set; }
-        public IList<Unenrollment> UnEnrollements { get; set; }
     }
 }

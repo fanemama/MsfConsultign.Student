@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class UnenrollCommand : IRequest
     {

@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>MsfConsulting.Lausa.Application.Service</AssemblyName>
+    <RootNamespace>MsfConsulting.Lausa.Application.Service</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

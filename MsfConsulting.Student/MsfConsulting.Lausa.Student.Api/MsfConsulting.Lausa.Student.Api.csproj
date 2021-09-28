@@ -2,21 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>63b49faa-2b8a-4709-9f98-dd98a4ace5c4</UserSecretsId>
+    <UserSecretsId>01f7a5c6-9bf1-444a-a62a-f24586fc8343</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
-    <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Lausa.Dto.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Application.Service\MsfConsulting.Lausa.Application.Service.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
   </ItemGroup>
 
 </Project>

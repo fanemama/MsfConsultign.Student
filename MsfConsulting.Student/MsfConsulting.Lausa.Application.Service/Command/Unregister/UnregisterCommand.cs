@@ -6,12 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class TransferCommand : IRequest
+    public class UnregisterCommand : IRequest
     {
         public long Id { get; set; }
-        public string Course { get; set; }
-        public string Grade { get; set; }
     }
 }

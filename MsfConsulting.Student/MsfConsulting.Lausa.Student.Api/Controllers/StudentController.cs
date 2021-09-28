@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Controllers
+namespace MsfConsulting.Lausa.Student.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

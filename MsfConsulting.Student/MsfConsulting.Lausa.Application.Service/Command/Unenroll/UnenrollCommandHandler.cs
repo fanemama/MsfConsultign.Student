@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MsfConsulting.Lausa.Domain.Model;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class UnenrollCommandHandler : IRequestHandler<UnenrollCommand>
     {

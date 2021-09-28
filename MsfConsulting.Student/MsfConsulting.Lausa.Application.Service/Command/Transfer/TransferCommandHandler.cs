@@ -6,19 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Data.Repository;
 
-namespace MsfConsulting.Student.Api.Service.Command
+namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class EnrollCommandHandler : IRequestHandler<EnrollCommand>
+    public class TransferCommandHandler : IRequestHandler<TransferCommand>
     {
         private readonly IStudentService _studentService;
-        public EnrollCommandHandler(IStudentService studentService)
+        public TransferCommandHandler(IStudentService studentService)
         {
             _studentService = studentService;
         }
 
 
-        public async Task<Unit> Handle(EnrollCommand request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(TransferCommand request, CancellationToken cancellationToken)
         {
 
             //************************mapp using automapper******************/
@@ -35,11 +37,16 @@ namespace MsfConsulting.Student.Api.Service.Command
             //if (!success)
             //    return Result.Fail($"Grade is incorrect: '{command.Grade}'");
 
-            //student.Enroll(course, grade);
+            //Enrollment enrollment = student.GetEnrollment(command.EnrollmentNumber);
+            //if (enrollment == null)
+            //    return Result.Fail($"No enrollment found with number '{command.EnrollmentNumber}'");
+
+            //enrollment.Update(course, grade);
 
             //unitOfWork.Commit();
 
-            return await Unit.Task;
+
+            return Unit.Task;
         }
     }
 }

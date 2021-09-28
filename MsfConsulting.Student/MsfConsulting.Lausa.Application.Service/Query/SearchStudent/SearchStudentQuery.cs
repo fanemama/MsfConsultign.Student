@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Query
+namespace MsfConsulting.Lausa.Application.Service.Query
 {
     public class SearchStudentQuery: IRequest<IEnumerable<MsfConsulting.Lausa.Dto.Student>>
     {

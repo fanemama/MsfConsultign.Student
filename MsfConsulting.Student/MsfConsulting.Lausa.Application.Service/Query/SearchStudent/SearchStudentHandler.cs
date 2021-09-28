@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Service.Query
+namespace MsfConsulting.Lausa.Application.Service.Query
 {
    public class SearchStudentQueryHandler : IRequestHandler<SearchStudentQuery, IEnumerable<MsfConsulting.Lausa.Dto.Student>>
     {
