@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Domain.Repository
 {
-    interface IGenericRepository<T> where T:class
+    public interface IGenericRepository<T> where T:class
     {
         T GetTByID(int id);
         void InsertT(T entity);
