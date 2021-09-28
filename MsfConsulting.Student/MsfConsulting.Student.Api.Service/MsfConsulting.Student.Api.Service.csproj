@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Business.Service\MsfConsulting.Business.Service.csproj" />
-    <ProjectReference Include="..\MsfConsulting.Domain\MsfConsulting.Domain.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Domain.Service\MsfConsulting.Lausa.Domain.Service.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Data\MsfConsulting.Lausa.Data.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
     <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Lausa.Dto.csproj" />
   </ItemGroup>

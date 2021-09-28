@@ -1,13 +1,11 @@
 ﻿using MediatR;
-using MsfConsulting.Business.Service;
+using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MsfConsulting.Business.Model;
-using MsfConsulting.Domain.Repository;
 
 namespace MsfConsulting.Student.Api.Service.Command
 {

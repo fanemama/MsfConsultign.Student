@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>MsfConsulting.Lausa.Data.Repository</AssemblyName>
+    <RootNamespace>MsfConsulting.Lausa.Data.Repository</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MsfConsulting.Lausa.Data\MsfConsulting.Lausa.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using MsfConsulting.Business.Service;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MsfConsulting.Business.Model;
 
 namespace MsfConsulting.Student.Api.Service.Command
 {
@@ -20,7 +20,7 @@ namespace MsfConsulting.Student.Api.Service.Command
 
         public async Task<Unit> Handle(EditPersonalInfoCommand request, CancellationToken cancellationToken)
         {
-            var studentPersonalInfo = new Business.Model.StudentPersonalInfo() { };
+            var studentPersonalInfo = new StudentPersonalInfo() { };
 
             //************************mapp using automapper******************/
 

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>MsfConsulting.Lausa.Domain</AssemblyName>
+    <RootNamespace>MsfConsulting.Lausa.Domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>

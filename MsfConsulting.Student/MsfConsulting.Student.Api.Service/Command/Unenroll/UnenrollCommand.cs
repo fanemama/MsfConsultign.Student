@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using MsfConsulting.Business.Model;
+using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
