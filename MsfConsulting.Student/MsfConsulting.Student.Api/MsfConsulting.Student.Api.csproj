@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Student.Api.Dto.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Student.Api.Dto\MsfConsulting.Lausa.Dto.csproj" />
     <ProjectReference Include="..\MsfConsulting.Student.Api.Service\MsfConsulting.Student.Api.Service.csproj" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Student.Api.Dto
+namespace MsfConsulting.Lausa.Dto
 {
     public class UnEnrollment
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MsfConsulting.Student.Api.Dto;
+using MsfConsulting.Lausa.Dto;
 using MsfConsulting.Student.Api.Service.Command;
 using System;
 using System.Collections.Generic;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Student.Api.Service.Query
 {
-    public class SearchStudentQuery: IRequest<IEnumerable<Dto.Student>>
+    public class SearchStudentQuery: IRequest<IEnumerable<MsfConsulting.Lausa.Dto.Student>>
     {
     }
 }

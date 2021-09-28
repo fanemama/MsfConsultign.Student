@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Student.Api.Service.Query
 {
-    class SearchStudentQueryHandler : IRequestHandler<SearchStudentQuery, IEnumerable<Dto.Student>>
+   public class SearchStudentQueryHandler : IRequestHandler<SearchStudentQuery, IEnumerable<MsfConsulting.Lausa.Dto.Student>>
     {
 
         //private readonly QueriesConnectionString _connectionString;
@@ -18,7 +18,7 @@ namespace MsfConsulting.Student.Api.Service.Query
         //    _connectionString = connectionString;
         //}
 
-        public async Task<IEnumerable<Dto.Student>> Handle(SearchStudentQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Lausa.Dto.Student>> Handle(SearchStudentQuery request, CancellationToken cancellationToken)
         {
             //string sql = @"
             //        SELECT s.StudentID Id, s.Name, s.Email,
@@ -44,7 +44,7 @@ namespace MsfConsulting.Student.Api.Service.Query
 
             //    return students;
 
-                return await Task.FromResult(new List<Dto.Student>());
+                return await Task.FromResult(new List<Lausa.Dto.Student>());
             }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MsfConsulting.Student.Api.Dto;
+using MsfConsulting.Lausa.Dto;
 using MsfConsulting.Student.Api.Service.Command;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace MsfConsulting.Student.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] Dto.Student dto)
+        public async Task<IActionResult> Register([FromBody] Lausa.Dto.Student dto)
         {
             /// TODO: Automapper
             var command = new RegisterCommand();
