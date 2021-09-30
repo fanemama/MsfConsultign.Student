@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Application.Service", "MsfConsulting.Lausa.Application.Service\MsfConsulting.Lausa.Application.Service.csproj", "{43D0E116-D5DB-48F6-A9F1-0FF9A397BF62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Student.Api", "MsfConsulting.Lausa.Student.Api\MsfConsulting.Lausa.Student.Api.csproj", "{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Student.Api", "MsfConsulting.Lausa.Student.Api\MsfConsulting.Lausa.Student.Api.csproj", "{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

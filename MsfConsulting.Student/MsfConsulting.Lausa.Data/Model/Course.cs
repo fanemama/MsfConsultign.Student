@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Model
 {
-    public class Course
+    public class Course: IEntity
     {
         public int Id { get; set; }
         public string Code { get; set; }

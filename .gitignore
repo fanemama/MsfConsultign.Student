@@ -31,3 +31,4 @@
 /MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/bin/Debug/net5.0
 /MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/obj
 /MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/MsfConsulting.Lausa.Student.Api.csproj.user
+*.suo

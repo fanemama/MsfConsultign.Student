@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Model
 {
-    public class Enrollment: IEntity
+    public interface IEntity
     {
         public int Id { get; set; }
-        public Grade Grade { get; set; }
-        public Course Course { get; set; }
-        public DateTime Date { get; set; }
     }
 }
