@@ -16,8 +16,12 @@ namespace MsfConsulting.Lausa.Data.Repository
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Student> Students { get; set; }
 
-        // On model creating function will provide us with the ability to manage the tables properties
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public LausaContext(DbContextOptions<LausaContext> options)
+            : base(options)
+        {
+        }
+
+       protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
         }

@@ -36,6 +36,10 @@ namespace MsfConsulting.Lausa.Student.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Lausa.Student.Api", Version = "v1" });
             });
 
+            //services.AddDbContext<LausaContext>(options =>
+            //    options.UseSqlite(
+            //        Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }
 
