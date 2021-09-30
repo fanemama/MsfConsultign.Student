@@ -38,7 +38,8 @@ namespace MsfConsulting.Lausa.Student.Api
 
             //services.AddDbContext<LausaContext>(options =>
             //    options.UseSqlite(
-            //        Configuration.GetConnectionString("DefaultConnection")));
+            //        Configuration.GetConnectionString("DefaultConnection"),
+            //         x => x.MigrationsAssembly("WebApplication1.Migrations")));
 
             services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }

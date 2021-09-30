@@ -32,3 +32,5 @@
 /MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/obj
 /MsfConsulting.Student/MsfConsulting.Lausa.Student.Api/MsfConsulting.Lausa.Student.Api.csproj.user
 *.suo
+*.cache
+/MsfConsulting.Student/MsfConsulting.Lausa.Database.Migrations/obj
