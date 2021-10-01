@@ -3,12 +3,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MsfConsulting.Lausa.Application.Service.Command;
+using MsfConsulting.Lausa.Data.Model;
+using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +39,18 @@ namespace MsfConsulting.Lausa.Student.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Lausa.Student.Api", Version = "v1" });
             });
+
+            services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IRepository<Course>, Repository<Course>>();
+            services.AddScoped<IRepository<Enrollment>, Repository<Enrollment>>();
+            services.AddScoped<IRepository<Unenrollment>, Repository<Unenrollment>>();
+            services.AddScoped<IRepository<Grade>, Repository<Grade>>();
+            services.AddScoped<IRepository<Data.Model.Student>, Repository<Data.Model.Student>>();
+            services.AddScoped<IRepository<Grade>, Repository<Grade>>();
+            services.AddScoped<IRepository<Data.Model.Student>, Repository<Data.Model.Student>>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
+            services.AddScoped<IStudentService, StudentService> ();
 
             services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }

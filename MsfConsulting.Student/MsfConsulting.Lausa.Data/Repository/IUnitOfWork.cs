@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Repository
 {
-    public interface IGenericRepository<T> where T:class
+    public interface IUnitOfWork 
     {
-        T GetTByID(int id);
-        void Save(T entity);
-        void DeleteT(int id);
-        void UpdateT(T entity);
+        void SaveChanges();
     }
 }
