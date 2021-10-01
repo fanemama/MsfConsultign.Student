@@ -10,8 +10,8 @@ namespace MsfConsulting.Lausa.Data.Repository
     {
 
         private readonly DbSet<TEntity> _dbSet;
-        private LausaContext _dbContext;
-        public Repository(LausaContext lausaContext)
+        private LausaDbContext _dbContext;
+        public Repository(LausaDbContext lausaContext)
         {
             _dbContext = lausaContext;
             _dbSet = lausaContext.Set<TEntity>();

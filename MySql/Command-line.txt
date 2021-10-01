@@ -1,0 +1,1 @@
+docker run --name lausa-mysql -e MYSQL_ROOT_PASSWORD=LausaMart MYSQL_DATABASE=Lausa -d -p 3306:3306  mysql

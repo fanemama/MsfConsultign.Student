@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Repository
 {
-    public class LausaContext : DbContext
+    public class LausaDbContext : DbContext
     {
         public DbSet<Course> Courses { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
@@ -16,7 +16,7 @@ namespace MsfConsulting.Lausa.Data.Repository
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Student> Students { get; set; }
 
-        public LausaContext(DbContextOptions<LausaContext> options)
+        public LausaDbContext(DbContextOptions<LausaDbContext> options)
             : base(options)
         {
         }

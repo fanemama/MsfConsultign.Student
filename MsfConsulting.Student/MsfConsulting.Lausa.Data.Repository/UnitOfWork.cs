@@ -8,10 +8,10 @@ namespace MsfConsulting.Lausa.Data.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public LausaContext DbContext => _dDbContext;
+        public LausaDbContext DbContext => _dDbContext;
        
-        private LausaContext _dDbContext;
-        public UnitOfWork(LausaContext context)
+        private LausaDbContext _dDbContext;
+        public UnitOfWork(LausaDbContext context)
         {
             _dDbContext = context;
         }
