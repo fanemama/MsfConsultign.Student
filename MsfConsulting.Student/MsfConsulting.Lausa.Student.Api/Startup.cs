@@ -13,6 +13,7 @@ using MsfConsulting.Lausa.Application.Service.Command;
 using MsfConsulting.Lausa.Data.Model;
 using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Domain.Service;
+using MsfConsulting.Lausa.Domain.Service.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,7 @@ namespace MsfConsulting.Lausa.Student.Api
             services.AddScoped<IEnrollmentService, EnrollmentService>();
             services.AddScoped<IStudentService, StudentService> ();
 
+            services.AddAutoMapper(typeof(DomainProfile).Assembly, typeof(ApplicationProfile).Assembly);
             services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }
 
