@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Data\MsfConsulting.Lausa.Data.csproj" />
   </ItemGroup>

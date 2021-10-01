@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Dto
 {
-    public class UnEnrollment
+    public class Unenrollment
     {
         public int Id { get; set; }
         public string Course { get; set; }
