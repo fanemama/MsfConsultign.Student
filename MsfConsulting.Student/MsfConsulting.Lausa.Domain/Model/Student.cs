@@ -14,25 +14,27 @@ namespace MsfConsulting.Lausa.Domain.Model
         public string Email { get; set; }
         public string Phone { get; set; }
         public IReadOnlyCollection<Enrollment> Enrollements => _enrollements.ToList();
-        public IReadOnlyCollection<Unenrollment> UnEnrollements => _unEnrollements.ToList();
+        public IReadOnlyCollection<Unenrollment> Unenrollements => _unenrollements.ToList();
 
-        private IList<Enrollment> _enrollements { get; set; }
-        public IList<Unenrollment> _unEnrollements { get; set; }
+        private IList<Enrollment> _enrollements = new List<Enrollment>();
+        public IList<Unenrollment> _unenrollements = new List<Unenrollment>();
 
         public virtual void UnEnroll(Enrollment enrollment, string comment)
         {
             var enrollmentToDelete = _enrollements.FirstOrDefault(x => x.Id == enrollment.Id);
-            if (enrollmentToDelete is null) throw new ArgumentException($"not Enrollment with theb id ='{enrollment.Id}' found for student");
+            if (enrollmentToDelete is null) throw new ArgumentException($"Enrollment with the id ='{enrollment.Id}' not found for this student");
 
             _enrollements.Remove(enrollmentToDelete);
 
             var disenrollment = new Unenrollment(enrollment.Course, comment);
-            _unEnrollements.Add(disenrollment);
+            _unenrollements.Add(disenrollment);
         }
 
-        public virtual void Enroll(Course course, Grade grade)
+        public virtual void Enroll(Course course, Grade grade=null)
         {
-
+            var enrollmentToDelete = _enrollements.FirstOrDefault(x => x.Id == course.Id);
+            if (enrollmentToDelete is not null) throw new ApplicationException($"the student is already enroll to the course ='{course.Label}'");
+            
             var enrollment = new Enrollment(course, grade);
             _enrollements.Add(enrollment);
         }

@@ -9,8 +9,8 @@ namespace MsfConsulting.Lausa.Data.Repository
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
 
-        private readonly DbSet<TEntity> _dbSet;
-        private LausaDbContext _dbContext;
+        protected readonly DbSet<TEntity> _dbSet;
+        protected LausaDbContext _dbContext;
         public Repository(LausaDbContext lausaContext)
         {
             _dbContext = lausaContext;
@@ -22,12 +22,17 @@ namespace MsfConsulting.Lausa.Data.Repository
             _dbSet.Remove(entity);
         }
 
+        public IQueryable<TEntity> GetAll()
+        {
+            return _dbSet;
+        }
+
         public async Task<TEntity> GetById(int id)
         {
             return await _dbSet.FirstOrDefaultAsync(x=> x.Id == id);
         }
 
-        public void Insert(TEntity entity)
+        public virtual void Insert(TEntity entity)
         {
              _dbSet.Add(entity);
         }

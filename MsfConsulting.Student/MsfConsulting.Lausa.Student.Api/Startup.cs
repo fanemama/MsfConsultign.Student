@@ -1,3 +1,4 @@
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,27 +35,20 @@ namespace MsfConsulting.Lausa.Student.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddAutoMapper(typeof(DomainProfile).Assembly, typeof(ApplicationProfile).Assembly);
+            
+            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
+            
+            services.AddMiddleOfficeServices();
 
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Lausa.Student.Api", Version = "v1" });
             });
-
-            services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddScoped<IRepository<Course>, Repository<Course>>();
-            services.AddScoped<IRepository<Enrollment>, Repository<Enrollment>>();
-            services.AddScoped<IRepository<Unenrollment>, Repository<Unenrollment>>();
-            services.AddScoped<IRepository<Grade>, Repository<Grade>>();
-            services.AddScoped<IRepository<Data.Model.Student>, Repository<Data.Model.Student>>();
-            services.AddScoped<IRepository<Grade>, Repository<Grade>>();
-            services.AddScoped<IRepository<Data.Model.Student>, Repository<Data.Model.Student>>();
-            services.AddScoped<IEnrollmentService, EnrollmentService>();
-            services.AddScoped<IStudentService, StudentService> ();
-
-            services.AddAutoMapper(typeof(DomainProfile).Assembly, typeof(ApplicationProfile).Assembly);
-            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

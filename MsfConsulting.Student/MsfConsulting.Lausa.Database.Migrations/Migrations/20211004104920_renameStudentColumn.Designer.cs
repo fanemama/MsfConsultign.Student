@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MsfConsulting.Lausa.Data.Repository;
 
 namespace MsfConsulting.Lausa.Database.Migrations.Migrations
 {
     [DbContext(typeof(LausaDbContext))]
-    partial class LausaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211004104920_renameStudentColumn")]
+    partial class renameStudentColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -134,9 +136,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                 {
                     b.HasOne("MsfConsulting.Lausa.Data.Model.Course", "Course")
                         .WithMany()
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseId");
 
                     b.HasOne("MsfConsulting.Lausa.Data.Model.Grade", "Grade")
                         .WithMany()

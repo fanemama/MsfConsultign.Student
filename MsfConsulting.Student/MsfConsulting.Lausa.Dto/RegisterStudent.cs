@@ -1,13 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Application.Service.Command
+namespace MsfConsulting.Lausa.Dto
 {
-    public class RegisterCommand : IRequest
+    public class RegisterStudent
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

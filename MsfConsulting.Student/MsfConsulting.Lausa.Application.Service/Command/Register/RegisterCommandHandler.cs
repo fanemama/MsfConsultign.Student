@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
@@ -12,28 +14,27 @@ namespace MsfConsulting.Lausa.Application.Service.Command
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand>
     {
         private readonly IStudentService _studentService;
-        public RegisterCommandHandler(IStudentService studentService)
+        private readonly IGradeService _gradeService;
+        private readonly ICourseService _courseService;
+        protected readonly IMapper _mapper;
+        public RegisterCommandHandler(IStudentService studentService, IMapper mapper, IGradeService gradeService, ICourseService courseService)
         {
             _studentService = studentService;
+            _mapper = mapper;
+            _gradeService = gradeService;
+            _courseService = courseService;
         }
 
         public async Task<Unit> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
-            var student = new Lausa.Domain.Model.Student() { };
+            var student = _mapper.Map<Domain.Model.Student>(request);
+            foreach (var courseCode in request.Enrollements)
+            {
+                var course = await _courseService.GetByCode(courseCode);
+                if (course is null) throw new ArgumentException($"Course with code '{course}' not foumd");
 
-            //************************mapp using automapper******************/
-
-            //if (command.Course1 != null && command.Course1Grade != null)
-            //{
-            //    Course course = courseRepository.GetByName(command.Course1);
-            //    student.Enroll(course, Enum.Parse<Grade>(command.Course1Grade));
-            //}
-
-            //if (command.Course2 != null && command.Course2Grade != null)
-            //{
-            //    Course course = courseRepository.GetByName(command.Course2);
-            //    student.Enroll(course, Enum.Parse<Grade>(command.Course2Grade));
-            //}
+                student.Enroll(course);
+            }
 
             _studentService.Register(student);
             return await Unit.Task;
