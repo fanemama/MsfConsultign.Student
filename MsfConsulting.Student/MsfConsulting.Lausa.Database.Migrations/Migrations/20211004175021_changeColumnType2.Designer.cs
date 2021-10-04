@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MsfConsulting.Lausa.Data.Repository;
 
 namespace MsfConsulting.Lausa.Database.Migrations.Migrations
 {
     [DbContext(typeof(LausaDbContext))]
-    partial class LausaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211004175021_changeColumnType2")]
+    partial class changeColumnType2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

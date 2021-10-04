@@ -47,9 +47,9 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         }
 
         [HttpDelete("unregister/{id}")]
-        public async Task<IActionResult> Unregister(long id)
+        public async Task<IActionResult> Unregister(int id)
         {
-            var command = new UnregisterCommand() {Id = id };
+            var command = new UnregisterCommand(id);
             await _mediator.Send(command);
             return Ok();
         }
@@ -66,11 +66,12 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
 
         
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditPersonalInfo(long id, [FromBody] Dto.StudentPersonalInfo dto)
+        [HttpPut("edit-personal-info/{id}")]
+        public async Task<IActionResult> EditPersonalInfo(int id, [FromBody] Dto.StudentPersonalInfo studentPersonalInfo)
         {
-            var command = new EditPersonalInfoCommand();
-            /// TODO: Automapper
+            var command = new EditPersonalInfoCommand(id);
+              command = _mapper.Map(studentPersonalInfo, command);
+
             await _mediator.Send(command);
             return Ok();
         }

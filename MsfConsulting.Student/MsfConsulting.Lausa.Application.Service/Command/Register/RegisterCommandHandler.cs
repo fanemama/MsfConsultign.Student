@@ -16,7 +16,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
         private readonly IStudentService _studentService;
         private readonly IGradeService _gradeService;
         private readonly ICourseService _courseService;
-        protected readonly IMapper _mapper;
+        private readonly IMapper _mapper;
         public RegisterCommandHandler(IStudentService studentService, IMapper mapper, IGradeService gradeService, ICourseService courseService)
         {
             _studentService = studentService;

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Application.Service.Command;
 using MsfConsulting.Lausa.Dto;
+using DataNodel = MsfConsulting.Lausa.Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
             //CreateMap<Dto.Unenrollment, Model.Unenrollment>().ReverseMap();
             
             CreateMap<RegisterStudent, RegisterCommand>();
+            CreateMap<StudentPersonalInfo, EditPersonalInfoCommand>();
+            CreateMap<EditPersonalInfoCommand, DataNodel.Student>();
 
             CreateMap<RegisterCommand, Model.Student>()
                 .ForMember(x => x.Enrollements, opt => opt.Ignore())
