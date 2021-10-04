@@ -10,6 +10,7 @@ namespace MsfConsulting.Lausa.Data.Repository
     public interface IRepository<TEntity> 
         where TEntity : class, IEntity
     {
+        IQueryable<TEntity> GetAll();
         Task<TEntity> GetById(int id);
         void Insert(TEntity entity);
         void Delete(TEntity entity);

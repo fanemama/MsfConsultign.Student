@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Enrollment = MsfConsulting.Lausa.Dto.Enrollment;
+using AutoMapper;
+using MsfConsulting.Lausa.Domain.Model;
 
 namespace MsfConsulting.Lausa.Student.Api.Controllers
 {
@@ -17,11 +20,13 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
 
         private readonly ILogger<StudentController> _logger;
         private readonly IMediator _mediator;
+        protected readonly IMapper _mapper;
 
-        public StudentController(ILogger<StudentController> logger, IMediator mediator)
+        public StudentController(ILogger<StudentController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet("search")]
@@ -34,10 +39,9 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] Lausa.Dto.Student dto)
+        public async Task<IActionResult> Register([FromBody] RegisterStudent dto)
         {
-            /// TODO: Automapper
-            var command = new RegisterCommand();
+             var command = _mapper.Map<RegisterCommand>(dto);
             await _mediator.Send(command);
             return Ok();
         }
@@ -63,7 +67,7 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditPersonalInfo(long id, [FromBody] StudentPersonalInfo dto)
+        public async Task<IActionResult> EditPersonalInfo(long id, [FromBody] Dto.StudentPersonalInfo dto)
         {
             var command = new EditPersonalInfoCommand();
             /// TODO: Automapper

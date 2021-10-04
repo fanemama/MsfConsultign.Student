@@ -1,15 +1,20 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Domain.Model;
+using DataModel = MsfConsulting.Lausa.Data.Model;
 using System;
 
 namespace MsfConsulting.Lausa.Domain.Service
 {
     public class StudentService : DomainService, IStudentService
     {
-        public StudentService(IMapper mapper, IUnitOfWork unitOfWork) : base(mapper, unitOfWork)
+        private readonly IRepository<DataModel.Student> _studentRepository;
+        public StudentService(
+            IMapper mapper, 
+            IUnitOfWork unitOfWork,
+            IRepository<DataModel.Student> studentRepository) : base(mapper, unitOfWork)
         {
-
+            this._studentRepository = studentRepository;
         }
 
         public void UpdatePersonalInfo(StudentPersonalInfo studentPersonalInfo)
@@ -24,7 +29,9 @@ namespace MsfConsulting.Lausa.Domain.Service
 
         public void Register(Student student)
         {
-            throw new NotImplementedException();
+            var studentToregidter = _mapper.Map<DataModel.Student>(student);
+            _studentRepository.Insert(studentToregidter);
+            _unitOfWork.SaveChanges();
         }
 
         public void Unenroll(int id, Enrollment enrollment)

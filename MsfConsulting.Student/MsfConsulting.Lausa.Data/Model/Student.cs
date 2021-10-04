@@ -14,6 +14,6 @@ namespace MsfConsulting.Lausa.Data.Model
         public string Email { get; set; }
         public string Phone { get; set; }
         public  IList<Enrollment> Enrollements { get; set; }
-        public IList<Unenrollment> UnEnrollements { get; set; }
+        public IList<Unenrollment> Unenrollements { get; set; }
     }
 }

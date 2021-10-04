@@ -12,7 +12,14 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
         public DomainProfile()
         {
             CreateMap<Data.Model.Course, Model.Course>().ReverseMap();
-            CreateMap<Data.Model.Enrollment, Model.Enrollment>().ReverseMap();
+            
+            CreateMap<Data.Model.Enrollment, Model.Enrollment>();
+            CreateMap<Model.Enrollment, Data.Model.Enrollment>()
+            .ForMember(x => x.Course, opt => opt.Ignore())
+            .ForMember(x => x.Grade, opt => opt.Ignore())
+            .ForMember(x => x.CourseId, opt => opt.MapFrom(so => so.Course.Id))
+             .ForMember(x => x.GradeId, opt => opt.MapFrom(so => so.Grade != null ? (int?)so.Grade.Id : null));
+
             CreateMap<Data.Model.Unenrollment, Model.Unenrollment>().ReverseMap();
             CreateMap<Data.Model.Grade, Domain.Model.Grade>().ReverseMap();
             CreateMap<Data.Model.Student, Domain.Model.Student>().ReverseMap();
