@@ -20,7 +20,9 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
             
             CreateMap<RegisterStudent, RegisterCommand>();
             CreateMap<StudentPersonalInfo, EditPersonalInfoCommand>();
+            CreateMap<Enroll, EnrollCommand>();
             CreateMap<EditPersonalInfoCommand, DataNodel.Student>();
+           
 
             CreateMap<RegisterCommand, Model.Student>()
                 .ForMember(x => x.Enrollements, opt => opt.Ignore())

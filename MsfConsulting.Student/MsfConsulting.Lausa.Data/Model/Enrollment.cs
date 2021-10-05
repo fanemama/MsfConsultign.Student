@@ -19,6 +19,6 @@ namespace MsfConsulting.Lausa.Data.Model
         public int CourseId { get; set; }
         public Course Course { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
     }
 }

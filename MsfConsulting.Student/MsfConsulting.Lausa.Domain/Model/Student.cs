@@ -19,7 +19,7 @@ namespace MsfConsulting.Lausa.Domain.Model
         private IList<Enrollment> _enrollements = new List<Enrollment>();
         public IList<Unenrollment> _unenrollements = new List<Unenrollment>();
 
-        public virtual void UnEnroll(Enrollment enrollment, string comment)
+        public  void UnEnroll(Enrollment enrollment, string comment)
         {
             var enrollmentToDelete = _enrollements.FirstOrDefault(x => x.Id == enrollment.Id);
             if (enrollmentToDelete is null) throw new ArgumentException($"Enrollment with the id ='{enrollment.Id}' not found for this student");
@@ -30,7 +30,7 @@ namespace MsfConsulting.Lausa.Domain.Model
             _unenrollements.Add(disenrollment);
         }
 
-        public virtual void Enroll(Course course, Grade grade=null)
+        public  void Enroll(Course course, Grade grade=null)
         {
             var enrollmentToDelete = _enrollements.FirstOrDefault(x => x.Id == course.Id);
             if (enrollmentToDelete is not null) throw new ApplicationException($"the student is already enroll to the course ='{course.Label}'");

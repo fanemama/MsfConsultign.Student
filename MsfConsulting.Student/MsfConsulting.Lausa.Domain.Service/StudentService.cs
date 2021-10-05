@@ -3,6 +3,7 @@ using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Domain.Model;
 using DataModel = MsfConsulting.Lausa.Data.Model;
 using System;
+using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Domain.Service
 {
@@ -42,6 +43,12 @@ namespace MsfConsulting.Lausa.Domain.Service
         public void Unregister(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Student> GetById(int id)
+        {
+            var result = await this._studentRepository.GetById(id);
+            return _mapper.Map<Student>(result);
         }
     }
 }

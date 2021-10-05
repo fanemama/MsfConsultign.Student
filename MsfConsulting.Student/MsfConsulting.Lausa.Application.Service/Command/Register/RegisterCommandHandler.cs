@@ -14,14 +14,12 @@ namespace MsfConsulting.Lausa.Application.Service.Command
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand>
     {
         private readonly IStudentService _studentService;
-        private readonly IGradeService _gradeService;
         private readonly ICourseService _courseService;
         private readonly IMapper _mapper;
-        public RegisterCommandHandler(IStudentService studentService, IMapper mapper, IGradeService gradeService, ICourseService courseService)
+        public RegisterCommandHandler(IStudentService studentService, IMapper mapper, ICourseService courseService)
         {
             _studentService = studentService;
             _mapper = mapper;
-            _gradeService = gradeService;
             _courseService = courseService;
         }
 

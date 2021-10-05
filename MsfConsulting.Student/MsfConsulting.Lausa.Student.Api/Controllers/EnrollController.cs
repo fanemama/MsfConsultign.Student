@@ -35,14 +35,6 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
             return Ok();
         }
 
-        [HttpPost("{id}/deletion")]
-        public async Task<IActionResult> Unenroll(long id,  string comment)
-        {
-            var command = new UnenrollCommand() { Id = id, Comment = comment };
-
-            /// TODO: Automapper
-            await _mediator.Send(command);
-            return Ok();
-        }
+       
     }
 }
