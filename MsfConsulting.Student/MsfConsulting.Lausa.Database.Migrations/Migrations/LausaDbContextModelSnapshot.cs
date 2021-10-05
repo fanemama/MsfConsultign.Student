@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Repository;
 
 namespace MsfConsulting.Lausa.Database.Migrations.Migrations
 {

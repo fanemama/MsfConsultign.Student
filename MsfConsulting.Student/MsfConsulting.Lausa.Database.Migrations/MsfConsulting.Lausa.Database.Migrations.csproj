@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Lausa.Data.Repository\MsfConsulting.Lausa.Data.Repository.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Data.Model
+namespace MsfConsulting.Lausa.Domain.Model
 {
-    public class Grade: IEntity, IReferential
+    public interface IReferential 
     {
-        public int Id { get; set; }
         public string Code { get; set; }
-        public string Label { get; set; }
     }
 }

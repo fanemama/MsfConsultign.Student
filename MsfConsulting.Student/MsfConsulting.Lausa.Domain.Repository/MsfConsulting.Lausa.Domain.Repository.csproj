@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>MsfConsulting.Lausa.Data.Repository</AssemblyName>
-    <RootNamespace>MsfConsulting.Lausa.Data.Repository</RootNamespace>
+    <AssemblyName>MsfConsulting.Lausa.Domain.Repository</AssemblyName>
+    <RootNamespace>MsfConsulting.Lausa.Domain.Repository</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Lausa.Data\MsfConsulting.Lausa.Data.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
   </ItemGroup>
 
 </Project>

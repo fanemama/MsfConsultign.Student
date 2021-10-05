@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Application.Service.Command;
-using MsfConsulting.Lausa.Data.Model;
+using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

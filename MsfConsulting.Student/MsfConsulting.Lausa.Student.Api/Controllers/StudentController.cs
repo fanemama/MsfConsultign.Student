@@ -9,7 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Enrollment = MsfConsulting.Lausa.Dto.Enrollment;
 using AutoMapper;
-using MsfConsulting.Lausa.Domain.Model;
 
 namespace MsfConsulting.Lausa.Student.Api.Controllers
 {

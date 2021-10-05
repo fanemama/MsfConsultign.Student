@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Repository;
 using AutoMapper;
-using MsfConsulting.Lausa.Data.Model;
+using MsfConsulting.Lausa.Domain.Model;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {

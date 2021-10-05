@@ -1,11 +1,11 @@
-﻿using MsfConsulting.Lausa.Data.Model;
+﻿using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Data.Repository
+namespace MsfConsulting.Lausa.Domain.Repository
 {
     public interface IRepository<TEntity> 
         where TEntity : class, IEntity

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
-using MsfConsulting.Lausa.Data.Model;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;

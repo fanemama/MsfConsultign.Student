@@ -2,9 +2,9 @@
 using System.Linq;
 using System;
 using System.Threading.Tasks;
-using MsfConsulting.Lausa.Data.Model;
+using MsfConsulting.Lausa.Domain.Model;
 
-namespace MsfConsulting.Lausa.Data.Repository
+namespace MsfConsulting.Lausa.Domain.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {

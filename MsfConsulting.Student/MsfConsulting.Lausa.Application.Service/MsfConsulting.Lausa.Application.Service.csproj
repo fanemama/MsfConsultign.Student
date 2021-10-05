@@ -7,13 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MsfConsulting.Lausa.Domain.Service\MsfConsulting.Lausa.Domain.Service.csproj" />
-    <ProjectReference Include="..\MsfConsulting.Lausa.Data\MsfConsulting.Lausa.Data.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
   </ItemGroup>
 

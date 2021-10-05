@@ -11,8 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MsfConsulting.Lausa.Application.Service.Command;
-using MsfConsulting.Lausa.Data.Model;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using MsfConsulting.Lausa.Domain.Service.Mapping;
 using System;
@@ -37,7 +37,7 @@ namespace MsfConsulting.Lausa.Student.Api
         {
             services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddAutoMapper(typeof(DomainProfile).Assembly, typeof(ApplicationProfile).Assembly);
+            services.AddAutoMapper(typeof(ApplicationProfile).Assembly);
             
             services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
             

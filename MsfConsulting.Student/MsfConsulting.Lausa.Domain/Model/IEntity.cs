@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Data.Repository
+namespace MsfConsulting.Lausa.Domain.Model
 {
-    public interface IUnitOfWork 
+    public interface IEntity
     {
-        Task SaveChanges();
+        public int Id { get; set; }
     }
 }
