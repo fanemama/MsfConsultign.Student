@@ -13,7 +13,29 @@ namespace MsfConsulting.Lausa.Data.Model
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public  IList<Enrollment> Enrollements { get; set; }
-        public IList<Unenrollment> Unenrollements { get; set; }
+        public IList<Enrollment> Enrollements { get; private set; } = new List<Enrollment>();
+        public IList<Unenrollment> Unenrollements { get; private set; } = new List<Unenrollment>();
+
+        public void UnEnroll(Enrollment enrollment, string comment)
+        {
+            if (comment is null) throw new ArgumentException($"To unEnroll comment must not be provided");
+
+            var enrollmentToDelete = Enrollements.FirstOrDefault(x => x.Id == enrollment.Id);
+            if (enrollmentToDelete is null) throw new ArgumentException($"Enrollment with the id ('{enrollment.Id}') not found");
+
+            Enrollements.Remove(enrollmentToDelete);
+
+            var disenrollment = new Unenrollment(enrollment.Course, comment);
+            Unenrollements.Add(disenrollment);
+        }
+
+        public void Enroll(Course course, Grade grade = null)
+        {
+            var enrollmentToDelete = Enrollements.FirstOrDefault(x => x.Id == course.Id);
+            if (enrollmentToDelete is not null) throw new ApplicationException($"the student is already enroll to the course ='{course.Label}'");
+
+            var enrollment = new Enrollment(course, grade);
+            Enrollements.Add(enrollment);
+        }
     }
 }

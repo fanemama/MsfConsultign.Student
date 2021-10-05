@@ -54,7 +54,7 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
             return Ok();
         }
 
-        [HttpPost("{id}/enrollments")]
+        [HttpPost("{id}/enroll")]
         public async Task<IActionResult> Enroll(int id, [FromBody] Enroll dto)
         {
             var command = new EnrollCommand(id);
@@ -64,11 +64,10 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         }
 
         [HttpPost("{id}/unenroll")]
-        public async Task<IActionResult> Unenroll(long id, string comment)
+        public async Task<IActionResult> Unenroll(int id, Unenroll dto)
         {
-            var command = new UnenrollCommand() { Id = id, Comment = comment };
-
-            /// TODO: Automapper
+            var command = new UnenrollCommand(id);
+            command = _mapper.Map(dto, command);
             await _mediator.Send(command);
             return Ok();
         }

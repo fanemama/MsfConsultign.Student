@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Application.Service.Command;
-using MsfConsulting.Lausa.Dto;
-using DataNodel = MsfConsulting.Lausa.Data.Model;
+using MsfConsulting.Lausa.Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +13,20 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
     {
         public ApplicationProfile()
         {
-            //CreateMap<Dto.StudentPersonalInfo, Model.Student>().ReverseMap();
-            //CreateMap<Dto.Enrollment, Model.Enrollment>().ReverseMap();
-            //CreateMap<Dto.Unenrollment, Model.Unenrollment>().ReverseMap();
             
-            CreateMap<RegisterStudent, RegisterCommand>();
-            CreateMap<StudentPersonalInfo, EditPersonalInfoCommand>();
-            CreateMap<Enroll, EnrollCommand>();
-            CreateMap<EditPersonalInfoCommand, DataNodel.Student>();
-           
-
-            CreateMap<RegisterCommand, Model.Student>()
+            CreateMap<Dto.RegisterStudent, RegisterCommand>();
+            CreateMap<RegisterCommand, Student>()
                 .ForMember(x => x.Enrollements, opt => opt.Ignore())
                 .ForMember(x => x.Unenrollements, opt => opt.Ignore());
 
-           // .ForMember(dest => dest.Tags, opt => opt.MapFrom(so => so.Tags.Select(t => t.Name).ToList()));
+            CreateMap<Dto.StudentPersonalInfo, EditPersonalInfoCommand>();
+            CreateMap<EditPersonalInfoCommand, Student>();
+
+            CreateMap<Dto.Enroll, EnrollCommand>();
+            CreateMap<Dto.Unenroll, UnenrollCommand>();
+      
+           
+            
         }
        
     }

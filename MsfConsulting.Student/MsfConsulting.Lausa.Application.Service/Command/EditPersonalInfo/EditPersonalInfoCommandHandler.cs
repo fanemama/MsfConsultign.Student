@@ -7,19 +7,13 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class EditPersonalInfoCommandHandler : IRequestHandler<EditPersonalInfoCommand>
+    public class EditPersonalInfoCommandHandler : BaseCommandHandler, IRequestHandler<EditPersonalInfoCommand>
     {
         private readonly IRepository<Student> _studentRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        public EditPersonalInfoCommandHandler(
-            IMapper mapper, 
-            IRepository<Student> studentRepository,
-            IUnitOfWork unitOfWork)
+
+        public EditPersonalInfoCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IRepository<Student> studentRepository) : base(mapper, unitOfWork)
         {
-            _mapper = mapper;
             _studentRepository = studentRepository;
-            _unitOfWork = unitOfWork;
         }
 
         public async Task<Unit> Handle(EditPersonalInfoCommand request, CancellationToken cancellationToken)

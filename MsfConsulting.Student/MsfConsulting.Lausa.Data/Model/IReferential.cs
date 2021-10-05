@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Model
 {
-    public class Grade: IEntity, IReferential
+    public interface IReferential 
     {
-        public int Id { get; set; }
         public string Code { get; set; }
-        public string Label { get; set; }
     }
 }

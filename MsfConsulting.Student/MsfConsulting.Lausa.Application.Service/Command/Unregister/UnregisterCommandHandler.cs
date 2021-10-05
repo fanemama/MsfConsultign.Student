@@ -4,7 +4,7 @@ using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Data.Model;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
@@ -22,6 +22,8 @@ namespace MsfConsulting.Lausa.Application.Service.Command
         public async Task<Unit> Handle(UnregisterCommand request, CancellationToken cancellationToken)
         {
             var student = await _studentRepository.GetById(request.Id);
+            if (student is null) throw new ArgumentException($"student with id '{request.Id}' not found");
+           
             _studentRepository.Delete(student);
             _unitOfWork.SaveChanges();
 

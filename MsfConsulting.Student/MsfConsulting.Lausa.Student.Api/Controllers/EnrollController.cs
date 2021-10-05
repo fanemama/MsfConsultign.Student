@@ -25,7 +25,7 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPut("enrollments/{id}")]
+        [HttpPut("transfer/{id}")]
         public async Task<IActionResult> Transfer(long id, [FromBody] EnrollmentInfo dto)
         {
             var command = new TransferCommand() { Id = id, };

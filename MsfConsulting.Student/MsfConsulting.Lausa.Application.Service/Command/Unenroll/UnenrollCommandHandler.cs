@@ -6,42 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using MsfConsulting.Lausa.Domain.Model;
+using AutoMapper;
+using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Data.Model;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class UnenrollCommandHandler : IRequestHandler<UnenrollCommand>
+    public class UnenrollCommandHandler : BaseCommandHandler, IRequestHandler<UnenrollCommand>
     {
-        private readonly IStudentService _studentService;
-        public UnenrollCommandHandler(IStudentService studentService)
+        private readonly IRepository<Student> _studentRepository;
+        private readonly IRepository<Enrollment> _enrollmentRepository;
+        public UnenrollCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, 
+            IRepository<Enrollment> enrollmentRepository, 
+            IRepository<Student> studentRepository) : base(mapper, unitOfWork)
         {
-            _studentService = studentService;
+            _enrollmentRepository = enrollmentRepository;
+            _studentRepository = studentRepository;
         }
-
 
         public async Task<Unit> Handle(UnenrollCommand request, CancellationToken cancellationToken)
         {
+            var student = await _studentRepository.GetById(request.StudentId);
+            var enrollment = await _enrollmentRepository.GetById(request.StudentId);
 
-            //************************mapp using automapper******************/
-
-            // Student student = studentRepository.GetById(command.Id);
-            //    if (student == null)
-            //        return Result.Fail($"No student found for Id {command.Id}");
-
-            //    if (string.IsNullOrWhiteSpace(command.Comment))
-            //        return Result.Fail("Disenrollment comment is required");
-
-            //    Enrollment enrollment = student.GetEnrollment(command.EnrollmentNumber);
-            //    if (enrollment == null)
-            //        return Result.Fail($"No enrollment found with number '{command.EnrollmentNumber}'");
-
-            //    student.RemoveEnrollment(enrollment, command.Comment);
-
-            //    unitOfWork.Commit();
-
-            //    return Result.Ok();
-
-            //_studentService.Register(student);
+            student.UnEnroll(enrollment, request.Comment);
+            _unitOfWork.SaveChanges();
 
             return await Unit.Task;
         }

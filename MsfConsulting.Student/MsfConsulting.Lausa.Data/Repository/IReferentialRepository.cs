@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Data.Repository
 {
-    public interface IGradeRepository
+    public interface IReferentialRepository<TEntity> : IRepository<TEntity>
+        where TEntity : class, IEntity, IReferential
     {
-        Task<Grade> GetByCode(string code);
+        Task<TEntity> GetByCode(string code);
     }
 }
