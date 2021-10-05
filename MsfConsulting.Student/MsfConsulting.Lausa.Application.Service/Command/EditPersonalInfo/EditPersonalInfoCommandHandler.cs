@@ -22,7 +22,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             student = _mapper.Map(request, student);
 
             _studentRepository.Update(student);
-            _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChanges();
             return await Unit.Task;
         }
     }

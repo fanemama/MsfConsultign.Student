@@ -25,7 +25,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             if (student is null) throw new ArgumentException($"student with id '{request.Id}' not found");
            
             _studentRepository.Delete(student);
-            _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChanges();
 
             return await Unit.Task;
         }

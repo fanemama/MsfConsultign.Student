@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class TransferCommand : IRequest
+    public class UpadteEnrollmentCommand : IRequest
     {
-        public long Id { get; set; }
+        private long id;
+
+        public UpadteEnrollmentCommand(long id)
+        {
+            this.id = id;
+        }
+
+        public int Id { get; set; }
         public string Course { get; set; }
         public string Grade { get; set; }
     }

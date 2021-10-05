@@ -38,11 +38,11 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             if (course is null) throw new ArgumentException($"Course with code '{request.Course}' not foumd");
 
             var grade = await _gradeRepository.GetByCode(request.Grade);
-            if (grade is null) throw new ArgumentException($"Course with code '{request.Grade}' not foumd");
+            if (grade is null) throw new ArgumentException($"Grade with code '{request.Grade}' not foumd");
             
             student.Enroll(course, grade);
             _studentRepository.Update(student);
-            _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChanges();
 
             return await Unit.Task;
         }

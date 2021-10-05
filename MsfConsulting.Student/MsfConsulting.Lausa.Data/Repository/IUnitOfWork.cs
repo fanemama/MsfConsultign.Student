@@ -8,6 +8,6 @@ namespace MsfConsulting.Lausa.Data.Repository
 {
     public interface IUnitOfWork 
     {
-        void SaveChanges();
+        Task SaveChanges();
     }
 }

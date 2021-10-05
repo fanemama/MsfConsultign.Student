@@ -40,7 +40,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             }
 
             _studentRepository.Insert(student);
-            _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChanges();
             return await Unit.Task;
         }
     }

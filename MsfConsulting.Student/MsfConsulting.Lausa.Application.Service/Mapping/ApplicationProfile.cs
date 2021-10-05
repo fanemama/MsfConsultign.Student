@@ -24,9 +24,11 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
 
             CreateMap<Dto.Enroll, EnrollCommand>();
             CreateMap<Dto.Unenroll, UnenrollCommand>();
-      
-           
-            
+
+            CreateMap<Dto.EnrollmentInfo, UpadteEnrollmentCommand>();
+
+
+
         }
        
     }

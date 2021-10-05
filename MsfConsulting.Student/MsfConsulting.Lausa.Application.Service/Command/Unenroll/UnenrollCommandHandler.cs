@@ -27,10 +27,10 @@ namespace MsfConsulting.Lausa.Application.Service.Command
         public async Task<Unit> Handle(UnenrollCommand request, CancellationToken cancellationToken)
         {
             var student = await _studentRepository.GetById(request.StudentId);
-            var enrollment = await _enrollmentRepository.GetById(request.StudentId);
+            var enrollment = await _enrollmentRepository.GetById(request.EnrollCommandId);
 
             student.UnEnroll(enrollment, request.Comment);
-            _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChanges();
 
             return await Unit.Task;
         }

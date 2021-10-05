@@ -27,7 +27,6 @@ namespace MsfConsulting.Lausa.Student.Api
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRepository<Data.Model.Student>, Repository<Data.Model.Student>>();
             services.AddScoped<IEnrollmentService, EnrollmentService>();
-            services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<IReferentialRepository<Grade>, ReferentialRepository<Grade>>();
             services.AddScoped< IReferentialRepository<Course>, ReferentialRepository<Course>>();
         }
