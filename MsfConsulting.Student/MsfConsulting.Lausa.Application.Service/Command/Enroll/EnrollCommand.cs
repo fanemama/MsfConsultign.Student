@@ -10,7 +10,11 @@ namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class EnrollCommand : IRequest
     {
-        public long Id { get; set; }
+        public EnrollCommand(int id)
+        {
+            StudentId = id;
+        }
+        public int StudentId { get; private set; }
         public string Course { get; set; }
         public string Grade { get; set; }
     }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace MsfConsulting.Lausa.Student.Api.Controllers
 {
@@ -18,31 +19,25 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
 
         private readonly ILogger<StudentController> _logger;
         private readonly IMediator _mediator;
+        protected readonly IMapper _mapper;
 
-        public EnrollController(ILogger<StudentController> logger, IMediator mediator)
+        public EnrollController(ILogger<StudentController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
             _mediator = mediator;
+            _mapper = mapper;
         }
 
-        [HttpPut("enrollments/{id}")]
-        public async Task<IActionResult> Transfer(long id, [FromBody] EnrollmentInfo dto)
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Update(long id, [FromBody] EnrollmentInfo dto)
         {
-            var command = new TransferCommand() { Id = id, };
-
+            var command = new UpadteEnrollmentCommand(id) ;
+            command = _mapper.Map(dto, command);
             /// TODO: Automapper
             await _mediator.Send(command);
             return Ok();
         }
 
-        [HttpPost("{id}/deletion")]
-        public async Task<IActionResult> Unenroll(long id,  string comment)
-        {
-            var command = new UnenrollCommand() { Id = id, Comment = comment };
 
-            /// TODO: Automapper
-            await _mediator.Send(command);
-            return Ok();
-        }
     }
 }

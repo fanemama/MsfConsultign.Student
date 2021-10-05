@@ -16,9 +16,9 @@ namespace MsfConsulting.Lausa.Data.Repository
             _dDbContext = context;
         }
 
-        public void SaveChanges()
+        public async Task SaveChanges()
         {
-            _dDbContext.SaveChanges();
+            await _dDbContext.SaveChangesAsync();
         }
  
     }

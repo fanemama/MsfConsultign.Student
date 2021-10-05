@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MsfConsulting.Lausa.Data.Repository;
 
 namespace MsfConsulting.Lausa.Database.Migrations.Migrations
 {
     [DbContext(typeof(LausaDbContext))]
-    partial class LausaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211004174544_updateDataModel")]
+    partial class updateDataModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.Property<int?>("GradeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -142,17 +144,13 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                         .WithMany()
                         .HasForeignKey("GradeId");
 
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Student", "Student")
+                    b.HasOne("MsfConsulting.Lausa.Data.Model.Student", null)
                         .WithMany("Enrollements")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentId");
 
                     b.Navigation("Course");
 
                     b.Navigation("Grade");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Unenrollment", b =>

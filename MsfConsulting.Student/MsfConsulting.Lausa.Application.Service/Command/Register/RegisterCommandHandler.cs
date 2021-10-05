@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using MsfConsulting.Lausa.Data.Model;
 using MsfConsulting.Lausa.Data.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using System;
@@ -11,32 +12,35 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand>
+    public class RegisterCommandHandler : BaseCommandHandler, IRequestHandler<RegisterCommand>
     {
-        private readonly IStudentService _studentService;
-        private readonly IGradeService _gradeService;
-        private readonly ICourseService _courseService;
-        protected readonly IMapper _mapper;
-        public RegisterCommandHandler(IStudentService studentService, IMapper mapper, IGradeService gradeService, ICourseService courseService)
+        private readonly IRepository<Student>  _studentRepository;
+        private readonly IReferentialRepository<Course> _courseRepository;
+
+        public RegisterCommandHandler(
+            IMapper mapper, 
+            IUnitOfWork unitOfWork,
+            IRepository<Student> studentRepository,
+            IReferentialRepository<Course> courseRepository
+            ) : base(mapper, unitOfWork)
         {
-            _studentService = studentService;
-            _mapper = mapper;
-            _gradeService = gradeService;
-            _courseService = courseService;
+            _studentRepository = studentRepository;
+            _courseRepository = courseRepository;
         }
 
         public async Task<Unit> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
-            var student = _mapper.Map<Domain.Model.Student>(request);
+            var student = _mapper.Map<Student>(request);
             foreach (var courseCode in request.Enrollements)
             {
-                var course = await _courseService.GetByCode(courseCode);
+                var course = await _courseRepository.GetByCode(courseCode);
                 if (course is null) throw new ArgumentException($"Course with code '{course}' not foumd");
 
                 student.Enroll(course);
             }
 
-            _studentService.Register(student);
+            _studentRepository.Insert(student);
+            await _unitOfWork.SaveChanges();
             return await Unit.Task;
         }
     }

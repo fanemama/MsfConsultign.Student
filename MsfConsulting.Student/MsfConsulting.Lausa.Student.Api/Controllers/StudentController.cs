@@ -47,30 +47,39 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         }
 
         [HttpDelete("unregister/{id}")]
-        public async Task<IActionResult> Unregister(long id)
+        public async Task<IActionResult> Unregister(int id)
         {
-            var command = new UnregisterCommand() {Id = id };
+            var command = new UnregisterCommand(id);
             await _mediator.Send(command);
             return Ok();
         }
 
-        [HttpPost("{id}/enrollments")]
-        public async Task<IActionResult> Enroll(long id, [FromBody] Enrollment dto)
+        [HttpPost("{id}/enroll")]
+        public async Task<IActionResult> Enroll(int id, [FromBody] Enroll dto)
         {
-            var command = new EnrollCommand() { Id = id };
-            
-            /// TODO: Automapper
+            var command = new EnrollCommand(id);
+             command = _mapper.Map(dto, command);
             await _mediator.Send(command);
             return Ok();
         }
 
-        
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditPersonalInfo(long id, [FromBody] Dto.StudentPersonalInfo dto)
+        [HttpPost("{id}/unenroll")]
+        public async Task<IActionResult> Unenroll(int id, Unenroll dto)
         {
-            var command = new EditPersonalInfoCommand();
-            /// TODO: Automapper
+            var command = new UnenrollCommand(id);
+            command = _mapper.Map(dto, command);
+            await _mediator.Send(command);
+            return Ok();
+        }
+
+
+
+        [HttpPut("edit-personal-info/{id}")]
+        public async Task<IActionResult> EditPersonalInfo(int id, [FromBody] Dto.StudentPersonalInfo studentPersonalInfo)
+        {
+            var command = new EditPersonalInfoCommand(id);
+              command = _mapper.Map(studentPersonalInfo, command);
+
             await _mediator.Send(command);
             return Ok();
         }

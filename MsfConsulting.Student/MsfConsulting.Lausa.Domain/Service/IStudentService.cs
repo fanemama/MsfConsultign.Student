@@ -9,6 +9,7 @@ namespace MsfConsulting.Lausa.Domain.Service
 {
     public interface IStudentService
     {
+        Task<Student> GetById(int id);
         public void Register(Student student);
 
         public void Unregister(int id);

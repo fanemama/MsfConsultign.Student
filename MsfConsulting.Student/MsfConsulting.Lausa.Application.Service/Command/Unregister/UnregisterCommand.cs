@@ -10,6 +10,10 @@ namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class UnregisterCommand : IRequest
     {
-        public long Id { get; set; }
+        public UnregisterCommand(int id)
+        {
+            Id = id;
+        }
+        public int Id { get; private set; }
     }
 }
