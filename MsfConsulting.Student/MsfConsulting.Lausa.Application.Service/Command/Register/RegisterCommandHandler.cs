@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
-using MsfConsulting.Lausa.Data.Model;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class RegisterCommandHandler : BaseCommandHandler, IRequestHandler<RegisterCommand>
+    public class RegisterCommandHandler : BaseCommandHandler, IRequestHandler<RegisterCommand, Student>
     {
         private readonly IRepository<Student>  _studentRepository;
         private readonly IReferentialRepository<Course> _courseRepository;
@@ -28,7 +28,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             _courseRepository = courseRepository;
         }
 
-        public async Task<Unit> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<Student> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
             var student = _mapper.Map<Student>(request);
             foreach (var courseCode in request.Enrollements)
@@ -41,7 +41,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
 
             _studentRepository.Insert(student);
             await _unitOfWork.SaveChanges();
-            return await Unit.Task;
+            return student;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class EnrollCommand : IRequest
+    public class EnrollCommand : IRequest<Enrollment>
     {
         public EnrollCommand(int id)
         {

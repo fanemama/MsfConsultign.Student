@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class RegisterCommand : IRequest
+    public class RegisterCommand : IRequest<Student>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

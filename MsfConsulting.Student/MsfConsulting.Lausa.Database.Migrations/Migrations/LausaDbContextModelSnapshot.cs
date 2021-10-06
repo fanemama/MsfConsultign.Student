@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Repository;
 
 namespace MsfConsulting.Lausa.Database.Migrations.Migrations
 {
@@ -17,7 +17,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.10");
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Course", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,9 +32,35 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "Physic",
+                            Label = "Physic"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Code = "Mathematic",
+                            Label = "Mathematic"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Code = "Biologic",
+                            Label = "Biologic"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Code = "Geographic",
+                            Label = "Geographic"
+                        });
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Enrollment", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Enrollment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +89,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.ToTable("Enrollments");
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Grade", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Grade", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,9 +104,41 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Grades");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "A",
+                            Label = "A"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Code = "B",
+                            Label = "B"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Code = "C",
+                            Label = "C"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Code = "D",
+                            Label = "D"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Code = "F",
+                            Label = "F"
+                        });
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Student", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,7 +161,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Unenrollment", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Unenrollment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +170,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("text");
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -130,19 +188,19 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.ToTable("Unenrollments");
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Enrollment", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Enrollment", b =>
                 {
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Course", "Course")
+                    b.HasOne("MsfConsulting.Lausa.Domain.Model.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Grade", "Grade")
+                    b.HasOne("MsfConsulting.Lausa.Domain.Model.Grade", "Grade")
                         .WithMany()
                         .HasForeignKey("GradeId");
 
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Student", "Student")
+                    b.HasOne("MsfConsulting.Lausa.Domain.Model.Student", "Student")
                         .WithMany("Enrollements")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -155,13 +213,15 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Unenrollment", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Unenrollment", b =>
                 {
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Course", "Course")
+                    b.HasOne("MsfConsulting.Lausa.Domain.Model.Course", "Course")
                         .WithMany()
-                        .HasForeignKey("CourseId");
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("MsfConsulting.Lausa.Data.Model.Student", "Student")
+                    b.HasOne("MsfConsulting.Lausa.Domain.Model.Student", "Student")
                         .WithMany("Unenrollements")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -172,7 +232,7 @@ namespace MsfConsulting.Lausa.Database.Migrations.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("MsfConsulting.Lausa.Data.Model.Student", b =>
+            modelBuilder.Entity("MsfConsulting.Lausa.Domain.Model.Student", b =>
                 {
                     b.Navigation("Enrollements");
 

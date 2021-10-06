@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
-using MsfConsulting.Lausa.Data.Model;
-using MsfConsulting.Lausa.Data.Repository;
+using MsfConsulting.Lausa.Domain.Model;
+using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MsfConsulting.Lausa.Application.Service.Command
 {
-    public class EnrollCommandHandler : BaseCommandHandler, IRequestHandler<EnrollCommand>
+    public class EnrollCommandHandler : BaseCommandHandler, IRequestHandler<EnrollCommand, Enrollment>
     {
         private readonly IRepository<Student> _studentRepository;
         private readonly IReferentialRepository<Course> _courseRepository;
@@ -30,7 +30,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             _studentRepository = studentRepository;
         }
 
-        public async Task<Unit> Handle(EnrollCommand request, CancellationToken cancellationToken)
+        public async Task<Enrollment> Handle(EnrollCommand request, CancellationToken cancellationToken)
         {
             var student = await _studentRepository.GetById(request.StudentId);
 
@@ -40,11 +40,11 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             var grade = await _gradeRepository.GetByCode(request.Grade);
             if (grade is null) throw new ArgumentException($"Grade with code '{request.Grade}' not foumd");
             
-            student.Enroll(course, grade);
+            var enrollment = student.Enroll(course, grade);
             _studentRepository.Update(student);
             await _unitOfWork.SaveChanges();
 
-            return await Unit.Task;
+            return enrollment;
         }
     }
 }
