@@ -36,7 +36,7 @@ namespace MsfConsulting.Lausa.Domain.Repository
               new Grade { Id = 2, Code = "B", Label = "B" },
               new Grade { Id = 3, Code = "C", Label = "C" },
               new Grade { Id = 4, Code = "D", Label = "D" },
-              new Grade { Id = 4, Code = "F", Label = "F" }
+              new Grade { Id = 5, Code = "F", Label = "F" }
               );
 
             base.OnModelCreating(modelBuilder);

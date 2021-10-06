@@ -22,8 +22,12 @@ namespace MsfConsulting.Lausa.Student.Api.Mapping
             CreateMap<Dto.EnrollmentInfo, UpadteEnrollmentCommand>();
 
             CreateMap<Domain.Model.Student, Dto.Student>();
-            CreateMap<Enrollment, Dto.Enrollment>();
-            CreateMap<Unenrollment, Dto.Enrollment>();
+            CreateMap<Enrollment, Dto.Enrollment>()
+                 .ForMember(x => x.Course, opt => opt.MapFrom(x=> x.Course.Code))
+                 .ForMember(x => x.Grade, opt => opt.MapFrom(x => x.Grade.Code));
+            
+            CreateMap<Unenrollment, Dto.Unenrollment>()
+                 .ForMember(x => x.Course, opt => opt.MapFrom(x => x.Course.Code));
 
 
 
