@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 
-namespace MsfConsulting.Lausa.Student.Api.Controllers
+namespace MsfConsulting.Lausa.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

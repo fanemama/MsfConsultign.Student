@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Student.Api.Mapping
+namespace MsfConsulting.Lausa.Api.Mapping
 {
     public class ApiProfile: Profile
     {

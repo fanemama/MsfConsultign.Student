@@ -9,13 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Application.Service", "MsfConsulting.Lausa.Application.Service\MsfConsulting.Lausa.Application.Service.csproj", "{43D0E116-D5DB-48F6-A9F1-0FF9A397BF62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Student.Api", "MsfConsulting.Lausa.Student.Api\MsfConsulting.Lausa.Student.Api.csproj", "{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Database.Migrations", "MsfConsulting.Lausa.Database.Migrations\MsfConsulting.Lausa.Database.Migrations.csproj", "{024730C8-1CC6-402C-9A6F-8028DBACA853}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Domain.Repository", "MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj", "{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Read.Application.Service", "MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj", "{916F9495-1445-4FD5-A856-94DC5AD70158}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Api", "MsfConsulting.Lausa.Api\MsfConsulting.Lausa.Api.csproj", "{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Read.Api", "MsfConsulting.Lausa.Read.Api\MsfConsulting.Lausa.Read.Api.csproj", "{37766070-B912-4661-80D8-469DF00F09F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{75E7A09C-605F-442B-8735-1E85D5EA7A95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +39,6 @@ Global
 		{43D0E116-D5DB-48F6-A9F1-0FF9A397BF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D0E116-D5DB-48F6-A9F1-0FF9A397BF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D0E116-D5DB-48F6-A9F1-0FF9A397BF62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A2F2EC4-C842-4D86-84A0-5395A6E3F8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{024730C8-1CC6-402C-9A6F-8028DBACA853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{024730C8-1CC6-402C-9A6F-8028DBACA853}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{024730C8-1CC6-402C-9A6F-8028DBACA853}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,9 +51,21 @@ Global
 		{916F9495-1445-4FD5-A856-94DC5AD70158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916F9495-1445-4FD5-A856-94DC5AD70158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916F9495-1445-4FD5-A856-94DC5AD70158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37766070-B912-4661-80D8-469DF00F09F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37766070-B912-4661-80D8-469DF00F09F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37766070-B912-4661-80D8-469DF00F09F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37766070-B912-4661-80D8-469DF00F09F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEB5ECEB-BACA-40DE-91E5-A2F284C41568} = {75E7A09C-605F-442B-8735-1E85D5EA7A95}
+		{37766070-B912-4661-80D8-469DF00F09F2} = {75E7A09C-605F-442B-8735-1E85D5EA7A95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1621DF12-C502-47BB-BD45-34F1441A7B12}

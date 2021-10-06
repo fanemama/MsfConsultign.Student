@@ -3,15 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MsfConsulting.Lausa.Dto;
 using MsfConsulting.Lausa.Application.Service.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Enrollment = MsfConsulting.Lausa.Dto.Enrollment;
 using AutoMapper;
-using MsfConsulting.Lausa.Read.Application.Service.Query;
 
-namespace MsfConsulting.Lausa.Student.Api.Controllers
+namespace MsfConsulting.Lausa.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -27,15 +22,6 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
             _logger = logger;
             _mediator = mediator;
             _mapper = mapper;
-        }
-
-        [HttpGet("search")]
-        public async Task<IActionResult> Search(string enrolled, int? number)
-        {
-            /// TODO: Automapper
-            var command = new SearchStudentQuery();
-            var students = await _mediator.Send(command);
-            return Ok(students);
         }
 
         [HttpPost("register")]

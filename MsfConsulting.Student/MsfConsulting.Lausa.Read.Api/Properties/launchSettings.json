@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:4115",
-      "sslPort": 44304
+      "applicationUrl": "http://localhost:30067",
+      "sslPort": 44344
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MsfConsulting.Lausa.Student.Api": {
+    "MsfConsulting.Lausa.Read.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

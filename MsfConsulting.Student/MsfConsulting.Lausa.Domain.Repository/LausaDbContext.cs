@@ -23,14 +23,14 @@ namespace MsfConsulting.Lausa.Domain.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Course>().HasData(
-            new Course { Id = 1, Code = "Physic", Label = "Physic" },
-            new Course { Id = 2, Code = "Mathematic", Label = "Mathematic" },
-            new Course { Id = 3, Code = "Biologic", Label = "Biologic" },
-            new Course { Id = 4, Code = "Geographic", Label = "Geographic" }
-            );
+            SeedCourse(modelBuilder);
+            SeedGrade(modelBuilder);
 
+            base.OnModelCreating(modelBuilder);
+        }
 
+        private static void SeedGrade(ModelBuilder modelBuilder)
+        {
             modelBuilder.Entity<Grade>().HasData(
               new Grade { Id = 1, Code = "A", Label = "A" },
               new Grade { Id = 2, Code = "B", Label = "B" },
@@ -38,8 +38,16 @@ namespace MsfConsulting.Lausa.Domain.Repository
               new Grade { Id = 4, Code = "D", Label = "D" },
               new Grade { Id = 5, Code = "F", Label = "F" }
               );
+        }
 
-            base.OnModelCreating(modelBuilder);
+        private static void SeedCourse(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Course>().HasData(
+            new Course { Id = 1, Code = "Physic", Label = "Physic" },
+            new Course { Id = 2, Code = "Mathematic", Label = "Mathematic" },
+            new Course { Id = 3, Code = "Biologic", Label = "Biologic" },
+            new Course { Id = 4, Code = "Geographic", Label = "Geographic" }
+            );
         }
     }
 }

@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>01f7a5c6-9bf1-444a-a62a-f24586fc8343</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyName>MsfConsulting.Lausa.Api</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +20,6 @@
     <ProjectReference Include="..\MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
-    <ProjectReference Include="..\MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>

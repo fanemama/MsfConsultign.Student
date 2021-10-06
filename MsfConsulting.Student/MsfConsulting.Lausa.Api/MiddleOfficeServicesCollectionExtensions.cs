@@ -4,7 +4,7 @@ using MsfConsulting.Lausa.Domain.Model;
 using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 
-namespace MsfConsulting.Lausa.Student.Api
+namespace MsfConsulting.Lausa.Api
 {
 
 

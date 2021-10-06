@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Student.Api
+namespace MsfConsulting.Lausa.Api
 {
     public class Program
     {
