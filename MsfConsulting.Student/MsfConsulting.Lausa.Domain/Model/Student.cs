@@ -29,13 +29,15 @@ namespace MsfConsulting.Lausa.Domain.Model
             Unenrollements.Add(disenrollment);
         }
 
-        public void Enroll(Course course, Grade grade = null)
+        public Enrollment Enroll(Course course, Grade grade = null)
         {
             var enrollmentToDelete = Enrollements.FirstOrDefault(x => x.Id == course.Id);
             if (enrollmentToDelete is not null) throw new ApplicationException($"the student is already enroll to the course ='{course.Label}'");
 
             var enrollment = new Enrollment(course, grade);
             Enrollements.Add(enrollment);
+
+            return enrollment;
         }
     }
 }

@@ -39,3 +39,5 @@
 /MsfConsulting.Student/.vs/MsfConsulting.Lausa
 /MsfConsulting.Student/MsfConsulting.Lausa.Domain.Repository/bin/Debug/net5.0
 /MsfConsulting.Student/MsfConsulting.Lausa.Domain.Repository/obj
+/MsfConsulting.Student/MsfConsulting.Lausa.Read.Application.Service/obj
+/MsfConsulting.Student/MsfConsulting.Lausa.Read.Application.Service/bin/Debug/net5.0

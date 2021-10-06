@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Enrollment = MsfConsulting.Lausa.Dto.Enrollment;
 using AutoMapper;
+using MsfConsulting.Lausa.Read.Application.Service.Query;
 
 namespace MsfConsulting.Lausa.Student.Api.Controllers
 {
@@ -32,7 +33,7 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         public async Task<IActionResult> Search(string enrolled, int? number)
         {
             /// TODO: Automapper
-            var command = new Lausa.Application.Service.Query.SearchStudentQuery();
+            var command = new SearchStudentQuery();
             var students = await _mediator.Send(command);
             return Ok(students);
         }
@@ -40,9 +41,9 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterStudent dto)
         {
-             var command = _mapper.Map<RegisterCommand>(dto);
-            await _mediator.Send(command);
-            return Ok();
+            var command = _mapper.Map<RegisterCommand>(dto);
+            var result = await _mediator.Send(command);
+            return Ok(_mapper.Map<Dto.Student>(result));
         }
 
         [HttpDelete("unregister/{id}")]
@@ -57,9 +58,9 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         public async Task<IActionResult> Enroll(int id, [FromBody] Enroll dto)
         {
             var command = new EnrollCommand(id);
-             command = _mapper.Map(dto, command);
-            await _mediator.Send(command);
-            return Ok();
+            command = _mapper.Map(dto, command);
+            var result = await _mediator.Send(command);
+            return Ok(_mapper.Map<Dto.Enrollment>(result));
         }
 
         [HttpPost("{id}/unenroll")]
@@ -77,7 +78,7 @@ namespace MsfConsulting.Lausa.Student.Api.Controllers
         public async Task<IActionResult> EditPersonalInfo(int id, [FromBody] Dto.StudentPersonalInfo studentPersonalInfo)
         {
             var command = new EditPersonalInfoCommand(id);
-              command = _mapper.Map(studentPersonalInfo, command);
+            command = _mapper.Map(studentPersonalInfo, command);
 
             await _mediator.Send(command);
             return Ok();

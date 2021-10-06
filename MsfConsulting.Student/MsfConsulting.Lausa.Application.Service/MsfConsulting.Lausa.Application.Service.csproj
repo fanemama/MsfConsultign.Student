@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
-    <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
   </ItemGroup>
 
 </Project>

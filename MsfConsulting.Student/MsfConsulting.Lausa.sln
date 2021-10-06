@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Databas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Domain.Repository", "MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj", "{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Read.Application.Service", "MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj", "{916F9495-1445-4FD5-A856-94DC5AD70158}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{916F9495-1445-4FD5-A856-94DC5AD70158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{916F9495-1445-4FD5-A856-94DC5AD70158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{916F9495-1445-4FD5-A856-94DC5AD70158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{916F9495-1445-4FD5-A856-94DC5AD70158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,6 +15,8 @@ using MsfConsulting.Lausa.Domain.Model;
 using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service;
 using MsfConsulting.Lausa.Domain.Service.Mapping;
+using MsfConsulting.Lausa.Read.Application.Service.Query;
+using MsfConsulting.Lausa.Student.Api.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,9 +39,9 @@ namespace MsfConsulting.Lausa.Student.Api
         {
             services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddAutoMapper(typeof(ApplicationProfile).Assembly);
+            services.AddAutoMapper(typeof(ApiProfile).Assembly, typeof(ApplicationProfile).Assembly);
             
-            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
+            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)), Assembly.GetAssembly(typeof(SearchStudentQuery)));
             
             services.AddMiddleOfficeServices();
 

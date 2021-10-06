@@ -14,21 +14,11 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
         public ApplicationProfile()
         {
             
-            CreateMap<Dto.RegisterStudent, RegisterCommand>();
             CreateMap<RegisterCommand, Student>()
                 .ForMember(x => x.Enrollements, opt => opt.Ignore())
                 .ForMember(x => x.Unenrollements, opt => opt.Ignore());
 
-            CreateMap<Dto.StudentPersonalInfo, EditPersonalInfoCommand>();
             CreateMap<EditPersonalInfoCommand, Student>();
-
-            CreateMap<Dto.Enroll, EnrollCommand>();
-            CreateMap<Dto.Unenroll, UnenrollCommand>();
-
-            CreateMap<Dto.EnrollmentInfo, UpadteEnrollmentCommand>();
-
-
-
         }
        
     }

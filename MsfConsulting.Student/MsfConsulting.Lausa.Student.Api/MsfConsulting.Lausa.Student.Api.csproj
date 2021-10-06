@@ -17,7 +17,9 @@
   <ItemGroup>
     <ProjectReference Include="..\MsfConsulting.Lausa.Application.Service\MsfConsulting.Lausa.Application.Service.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Domain\MsfConsulting.Lausa.Domain.csproj" />
     <ProjectReference Include="..\MsfConsulting.Lausa.Dto\MsfConsulting.Lausa.Dto.csproj" />
+    <ProjectReference Include="..\MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj" />
   </ItemGroup>
 
 </Project>
