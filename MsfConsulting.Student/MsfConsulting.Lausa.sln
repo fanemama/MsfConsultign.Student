@@ -13,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Databas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Domain.Repository", "MsfConsulting.Lausa.Domain.Repository\MsfConsulting.Lausa.Domain.Repository.csproj", "{AA42C6DC-4747-4A9D-A76B-5C4B16DBCBFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Read.Application.Service", "MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj", "{916F9495-1445-4FD5-A856-94DC5AD70158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Read.Application.Service", "MsfConsulting.Lausa.Read.Application.Service\MsfConsulting.Lausa.Read.Application.Service.csproj", "{916F9495-1445-4FD5-A856-94DC5AD70158}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Api", "MsfConsulting.Lausa.Api\MsfConsulting.Lausa.Api.csproj", "{CEB5ECEB-BACA-40DE-91E5-A2F284C41568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsfConsulting.Lausa.Read.Api", "MsfConsulting.Lausa.Read.Api\MsfConsulting.Lausa.Read.Api.csproj", "{37766070-B912-4661-80D8-469DF00F09F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Read.Api", "MsfConsulting.Lausa.Read.Api\MsfConsulting.Lausa.Read.Api.csproj", "{37766070-B912-4661-80D8-469DF00F09F2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{75E7A09C-605F-442B-8735-1E85D5EA7A95}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsfConsulting.Lausa.Shared", "MsfConsulting.Lausa.Shared\MsfConsulting.Lausa.Shared.csproj", "{372A8F0B-1D6D-4177-8B2B-A26356DF7A78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{37766070-B912-4661-80D8-469DF00F09F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37766070-B912-4661-80D8-469DF00F09F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37766070-B912-4661-80D8-469DF00F09F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{372A8F0B-1D6D-4177-8B2B-A26356DF7A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372A8F0B-1D6D-4177-8B2B-A26356DF7A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372A8F0B-1D6D-4177-8B2B-A26356DF7A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372A8F0B-1D6D-4177-8B2B-A26356DF7A78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
