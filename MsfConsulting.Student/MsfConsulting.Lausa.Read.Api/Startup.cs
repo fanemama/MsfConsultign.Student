@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MsfConsulting.Lausa.Read.Api.Mapping;
 using MsfConsulting.Lausa.Read.Application.Service.Query;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,10 @@ namespace MsfConsulting.Lausa.Read.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(ReadApiProfile).Assembly);
             services.AddMediatR(Assembly.GetAssembly(typeof(SearchStudentQuery)));
-
+            
+            services.AddMiddleOfficeServices(Configuration);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
