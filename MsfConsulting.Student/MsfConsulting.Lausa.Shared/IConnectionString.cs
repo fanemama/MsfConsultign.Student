@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MsfConsulting.Lausa.Domain.Model.Search
+namespace MsfConsulting.Lausa.Shared
 {
-    public class StudentFilter
+    public interface IConnectionString
     {
+        string Value { get; }
     }
 }
