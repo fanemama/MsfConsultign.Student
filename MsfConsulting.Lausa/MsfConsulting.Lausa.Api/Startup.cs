@@ -29,13 +29,13 @@ namespace MsfConsulting.Lausa.Api
             services.AddDbContext<LausaDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAutoMapper(typeof(ApiProfile).Assembly, typeof(ApplicationProfile).Assembly);
-            
-            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
-            
-            services.AddMiddleOfficeServices();
 
+            services.AddMediatR(Assembly.GetAssembly(typeof(UnregisterCommandHandler)));
+
+            services.AddLausaServices();
+            services.AddCors();
             services.AddControllers();
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Lausa.Api", Version = "v1" });
@@ -55,6 +55,10 @@ namespace MsfConsulting.Lausa.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowAnyOrigin());
 
             app.UseAuthorization();
 

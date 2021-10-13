@@ -29,7 +29,7 @@ namespace MsfConsulting.Lausa.Read.Application.Service.Query
 	                Students.Email, 
 	                Students.Phone,
 	                Count(Enrollment.StudentId) AS NbrEnrollment,
-                Count(Unenrollment.StudentId) AS NbrUnEnrollment
+                Count(Unenrollment.StudentId) AS NbrUnenrollment
                 FROM   Students Students 
                 LEFT JOIN Enrollments Enrollment 
 	                ON Students.Id = Enrollment.StudentId
