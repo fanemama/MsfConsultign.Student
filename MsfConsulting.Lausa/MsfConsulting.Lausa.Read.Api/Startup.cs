@@ -34,6 +34,7 @@ namespace MsfConsulting.Lausa.Read.Api
             services.AddMediatR(Assembly.GetAssembly(typeof(SearchStudentQuery)));
             
             services.AddMiddleOfficeServices(Configuration);
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -54,6 +55,11 @@ namespace MsfConsulting.Lausa.Read.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowAnyOrigin());
+                
 
             app.UseAuthorization();
 

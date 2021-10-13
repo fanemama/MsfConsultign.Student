@@ -10,7 +10,7 @@ namespace MsfConsulting.Lausa.Read.Api
     /// <summary>
     /// Classe d'extension pour gérer l'injection de dépendances des services Middle
     /// </summary>
-    public static class MiddleOfficeServicesCollectionExtensions {
+    public static class LausaServicesCollectionExtensions {
         /// <summary>
         /// Configure l'injection de dépendances des services <see cref="ServiceContract"/>
         /// </summary>

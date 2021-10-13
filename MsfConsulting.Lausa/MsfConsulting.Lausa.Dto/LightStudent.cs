@@ -14,6 +14,6 @@ namespace MsfConsulting.Lausa.Domain.Model.Search
         public string Email { get; set; }
         public string Phone { get; set; }
         public int NbrEnrollment { get; set; }
-        public int NbrUnEnrollment { get; set; }
+        public int NbrUnenrollment { get; set; }
     }
 }
