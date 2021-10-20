@@ -9,13 +9,6 @@ namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class UpadteEnrollmentCommand : IRequest
     {
-        private long id;
-
-        public UpadteEnrollmentCommand(long id)
-        {
-            this.id = id;
-        }
-
         public int Id { get; set; }
         public string Course { get; set; }
         public string Grade { get; set; }

@@ -62,8 +62,8 @@ namespace MsfConsulting.Lausa.Read.Application.Service.Query.GetStudentById
                         studentDictionary.Add(student.Id, student);
                     }
                    
-                    if (enrollment is not null) currentStudent.Enrollements.Add(enrollment);
-                    if (unenrollment is not null) currentStudent.Unenrollements.Add(unenrollment);
+                    if (enrollment is not null) currentStudent.Enrollments.Add(enrollment);
+                    if (unenrollment is not null) currentStudent.Unenrollments.Add(unenrollment);
                     return currentStudent;
                 }
                 ,new { Id = request.Id });

@@ -13,7 +13,7 @@ namespace MsfConsulting.Lausa.Dto
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public IList<Enrollment> Enrollements { get; set; } = new List<Enrollment>();
-        public IList<Unenrollment> Unenrollements { get; set; } = new List<Unenrollment>();
+        public IList<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public IList<Unenrollment> Unenrollments { get; set; } = new List<Unenrollment>();
     }
 }
