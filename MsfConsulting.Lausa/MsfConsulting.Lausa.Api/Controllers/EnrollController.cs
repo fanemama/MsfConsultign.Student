@@ -28,11 +28,10 @@ namespace MsfConsulting.Lausa.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpPut("update/{id}")]
-        public async Task<IActionResult> Update(long id, [FromBody] EnrollmentInfo dto)
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] EnrollmentInfo dto)
         {
-            var command = new UpadteEnrollmentCommand(id) ;
-            command = _mapper.Map(dto, command);
+            var command = _mapper.Map<UpadteEnrollmentCommand>(dto);
             /// TODO: Automapper
             await _mediator.Send(command);
             return Ok();
