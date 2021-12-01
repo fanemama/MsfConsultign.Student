@@ -14,6 +14,7 @@ namespace MsfConsulting.Lausa.Domain.Repository
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Unenrollment> Unenrollments { get; set; }
         public DbSet<Grade> Grades { get; set; }
+        public DbSet<Location> Locations { get; set; }
         public DbSet<Student> Students { get; set; }
 
         public LausaDbContext(DbContextOptions<LausaDbContext> options)
@@ -23,8 +24,14 @@ namespace MsfConsulting.Lausa.Domain.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Student>()
+                .HasOne(x => x.LiveLocation)
+                .WithOne(y => y.Student)
+                .HasForeignKey<Student>(b => b.LiveLocationId); ;
+
             SeedCourse(modelBuilder);
             SeedGrade(modelBuilder);
+            DefaultData.Build(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -11,6 +11,7 @@ using MsfConsulting.Lausa.Domain.Repository;
 using MsfConsulting.Lausa.Domain.Service.Mapping;
 using MsfConsulting.Lausa.Api.Mapping;
 using System.Reflection;
+using MsfConsulting.Lausa.Api.Hubs;
 
 namespace MsfConsulting.Lausa.Api
 {
@@ -35,7 +36,7 @@ namespace MsfConsulting.Lausa.Api
             services.AddLausaServices();
             services.AddCors();
             services.AddControllers();
-
+            services.AddSignalR();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MsfConsulting.Lausa.Api", Version = "v1" });
@@ -56,15 +57,17 @@ namespace MsfConsulting.Lausa.Api
 
             app.UseRouting();
             app.UseCors(x => x
+               .WithOrigins("http://localhost:4200")
                .AllowAnyMethod()
                .AllowAnyHeader()
-               .AllowAnyOrigin());
+               .AllowCredentials());
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<LocationHub>("/locationHub");
             });
         }
     }

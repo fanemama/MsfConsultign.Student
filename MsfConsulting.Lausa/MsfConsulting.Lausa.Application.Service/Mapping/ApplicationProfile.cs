@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Application.Service.Command;
+using MsfConsulting.Lausa.Application.Service.Command.SetLocation;
 using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace MsfConsulting.Lausa.Domain.Service.Mapping
                 .ForMember(x => x.Unenrollements, opt => opt.Ignore());
 
             CreateMap<EditPersonalInfoCommand, Student>();
+            CreateMap<SetLocationCommand, Location>();
         }
        
     }

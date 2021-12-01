@@ -5,6 +5,11 @@ using MsfConsulting.Lausa.Dto;
 using MsfConsulting.Lausa.Application.Service.Command;
 using System.Threading.Tasks;
 using AutoMapper;
+using MsfConsulting.Lausa.Application.Service.Command.SetLocation;
+using Microsoft.AspNetCore.SignalR;
+using MsfConsulting.Lausa.Api.Hubs;
+using MsfConsulting.Lausa.Domain.Model;
+using Location = MsfConsulting.Lausa.Dto.Location;
 
 namespace MsfConsulting.Lausa.Api.Controllers
 {
@@ -15,13 +20,15 @@ namespace MsfConsulting.Lausa.Api.Controllers
 
         private readonly ILogger<StudentController> _logger;
         private readonly IMediator _mediator;
-        protected readonly IMapper _mapper;
+        private readonly IMapper _mapper;
+        private readonly IHubContext<LocationHub> _locationHub;
 
-        public StudentController(ILogger<StudentController> logger, IMediator mediator, IMapper mapper)
+        public StudentController(ILogger<StudentController> logger, IMediator mediator, IMapper mapper, IHubContext<LocationHub> locationHub)
         {
             _logger = logger;
             _mediator = mediator;
             _mapper = mapper;
+            _locationHub = locationHub;
         }
 
         [HttpPost("register")]
@@ -58,8 +65,6 @@ namespace MsfConsulting.Lausa.Api.Controllers
             return Ok();
         }
 
-
-
         [HttpPut("edit-personal-info/{id}")]
         public async Task<IActionResult> EditPersonalInfo(int id, [FromBody] Dto.StudentPersonalInfo studentPersonalInfo)
         {
@@ -67,6 +72,16 @@ namespace MsfConsulting.Lausa.Api.Controllers
             command = _mapper.Map(studentPersonalInfo, command);
 
             await _mediator.Send(command);
+            return Ok();
+        }
+
+        [HttpPost("set-live-location/{studentId}")]
+        public async Task<IActionResult> SetLiveLocation(int studentId, SetLocation location)
+        {
+            var command = new SetLocationCommand(studentId);
+            command = _mapper.Map(location, command);
+            var result = await _mediator.Send(command);
+            await _locationHub.Clients.All.SendAsync("LocationChanged", _mapper.Map<Location>(result));
             return Ok();
         }
     }
