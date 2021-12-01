@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MsfConsulting.Lausa.SimilateMovement
 {
@@ -15,15 +16,16 @@ namespace MsfConsulting.Lausa.SimilateMovement
             Console.WriteLine("starting moving Students!!! :-)");
             List<StudentLocation> Students = await GetStudentLocations();
 
+
             _ = Task.Run(async () =>
             {
 
                 do
                 {
-                    Parallel.ForEach(Students, async Student =>
+                    foreach (var Student in Students)
                     {
                         await Move(Student);
-                    });
+                    }
 
                     await Task.Delay(1000);
                 } while (true);
@@ -36,7 +38,7 @@ namespace MsfConsulting.Lausa.SimilateMovement
         private static async Task<List<StudentLocation>> GetStudentLocations()
         {
             using HttpClient client = new HttpClient();
-            var response = await client.GetAsync("https://localhost:44320/Student/get-all-student-location");
+            var response = await client.GetAsync("https://localhost:44344/Student/get-all-student-location");
             return await response.Content.ReadAsAsync<List<StudentLocation>>();
         }
 
@@ -63,7 +65,7 @@ namespace MsfConsulting.Lausa.SimilateMovement
             Student.LiveLocation.Heading = ComputeHeading(oldLatitude, oldLongitude, Student.LiveLocation.Latitude, Student.LiveLocation.Longitude);
 
             using HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.PostAsJsonAsync($"https://localhost:44320/Location/set-live-location/{Student.Id}",
+            HttpResponseMessage response = await client.PostAsJsonAsync($"https://localhost:44304/Student/set-live-location/{Student.Id}",
                 BuildSetLocation(Student));
 
             response.EnsureSuccessStatusCode();

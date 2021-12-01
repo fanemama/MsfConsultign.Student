@@ -57,9 +57,10 @@ namespace MsfConsulting.Lausa.Api
 
             app.UseRouting();
             app.UseCors(x => x
+               .WithOrigins("http://localhost:4200")
                .AllowAnyMethod()
                .AllowAnyHeader()
-               .AllowAnyOrigin());
+               .AllowCredentials());
 
             app.UseAuthorization();
 

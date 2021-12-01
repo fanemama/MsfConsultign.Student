@@ -31,7 +31,7 @@ namespace MsfConsulting.Lausa.Domain.Repository
 
             SeedCourse(modelBuilder);
             SeedGrade(modelBuilder);
-            //DefaultData.Build(modelBuilder);
+            DefaultData.Build(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
