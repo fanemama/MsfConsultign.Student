@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MsfConsulting.Lausa.Application.Service.Command;
+using MsfConsulting.Lausa.Application.Service.Command.SetLocation;
 using MsfConsulting.Lausa.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,16 @@ namespace MsfConsulting.Lausa.Api.Mapping
             CreateMap<Dto.Enroll, EnrollCommand>();
             CreateMap<Dto.Unenroll, UnenrollCommand>();
             CreateMap<Dto.EnrollmentInfo, UpadteEnrollmentCommand>();
+            CreateMap<Dto.SetLocation, SetLocationCommand>();
 
-            CreateMap<Domain.Model.Student, Dto.Student>();
+            CreateMap<Student, Dto.Student>();
             CreateMap<Enrollment, Dto.Enrollment>()
                  .ForMember(x => x.Course, opt => opt.MapFrom(x=> x.Course.Code))
                  .ForMember(x => x.Grade, opt => opt.MapFrom(x => x.Grade.Code));
             
             CreateMap<Unenrollment, Dto.Unenrollment>()
                  .ForMember(x => x.Course, opt => opt.MapFrom(x => x.Course.Code));
+            CreateMap<Location, Dto.Location>();
 
 
 

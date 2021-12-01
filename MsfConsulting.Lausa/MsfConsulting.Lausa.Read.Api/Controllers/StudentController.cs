@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MsfConsulting.Lausa.Read.Application.Service.Query;
 using AutoMapper;
 using MsfConsulting.Lausa.Read.Application.Service.Query.GetStudentById;
+using MsfConsulting.Lausa.Read.Application.Service.Query.GetAllStudentLocation;
 
 namespace MsfConsulting.Lausa.Read.Api.Controllers
 {
@@ -37,6 +38,14 @@ namespace MsfConsulting.Lausa.Read.Api.Controllers
         public async Task<IActionResult> Search(int id)
         {
             var command = new GetStudentByIdQuery(id);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet("get-all-student-location")]
+        public async Task<IActionResult> GetAllStudentLocation()
+        {
+            var command = new GetAllStudentLocationQuery();
             var result = await _mediator.Send(command);
             return Ok(result);
         }

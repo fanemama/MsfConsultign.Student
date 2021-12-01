@@ -14,7 +14,7 @@ namespace MsfConsulting.Lausa.Application.Service.Command
 {
     public class UpadteEnrollmentCommandHandler:  BaseCommandHandler, IRequestHandler<UpadteEnrollmentCommand>
     {
-    private readonly IRepository<Enrollment> _enrollmentRepository;
+        private readonly IRepository<Enrollment> _enrollmentRepository;
         private readonly IReferentialRepository<Course> _courseRepository;
         private readonly IReferentialRepository<Grade> _gradeRepository;
         public UpadteEnrollmentCommandHandler(IMapper mapper, IUnitOfWork unitOfWork,
@@ -32,10 +32,10 @@ namespace MsfConsulting.Lausa.Application.Service.Command
             var enrollment = await _enrollmentRepository.GetById(request.Id);
 
             var course = await _courseRepository.GetByCode(request.Course);
-            if (course is null) throw new ArgumentException($"Course with code '{request.Course}' not foumd");
+            if (course is null) throw new EnrollmentException($"Course with code '{request.Course}' not foumd");
 
             var grade = await _gradeRepository.GetByCode(request.Grade);
-            if (grade is null) throw new ArgumentException($"Grade with code '{request.Grade}' not foumd");
+            if (grade is null) throw new EnrollmentException($"Grade with code '{request.Grade}' not foumd");
 
             enrollment.Course = course;
             enrollment.Grade = grade;
